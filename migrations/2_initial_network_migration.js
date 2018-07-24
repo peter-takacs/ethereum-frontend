@@ -1,8 +1,8 @@
-var Certificates = artifacts.require("./Certificates.sol");
-var EducatorNetwork = artifacts.require("./EducatorNetwork.sol");
+var Certificates = artifacts.require("Certificates.sol");
+var EducatorNetwork = artifacts.require("EducatorNetwork.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(EducatorNetwork).then(function () {
-    deployer.deploy(Certificates, EducatorNetwork.address);
-  });
+    deployer.deploy(EducatorNetwork).then(() => 
+      deployer.deploy(Certificates, EducatorNetwork.address)
+    )
 };
