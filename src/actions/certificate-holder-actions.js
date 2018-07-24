@@ -1,6 +1,7 @@
 
 import CertificatesContract from '../../build/contracts/Certificates.json'
 import getWeb3 from '../utils/getWeb3'
+import contract from 'truffle-contract';
 
 export const REQUEST_STATUS = 'REQUEST_STATUS';
 function requestStatus(candidate, certificate) {
@@ -32,20 +33,15 @@ export function getStatus(candidate, certificate) {
     return function (dispatch) {
         dispatch(requestStatus(candidate, certificate));
 
-        const contract = require('truffle-contract')
         return getWeb3
         .then(results => {
             const web3 = results.web3;
 
             const certificates = contract(CertificatesContract)
             certificates.setProvider(web3.currentProvider);
-            var certificatesInstance
-
             return web3.eth.getAccounts((error, accounts) => {
                 certificates.deployed().then((instance) => {
-                    certificatesInstance = instance
-
-                    return certificatesInstance.getCertificates.call(candidate)
+                    return instance.getCertificates.call(candidate)
                 })
                 .then(result => {
                     dispatch(receiveStatus(result.includes(certificate)));
