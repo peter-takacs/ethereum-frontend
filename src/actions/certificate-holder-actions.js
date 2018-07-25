@@ -20,10 +20,10 @@ function receiveStatus(hasCertificate) {
     }
 }
 
-export const CHANGE_QUERY = 'CHANGE_QUERY';
+export const CHANGE_STATUS_QUERY = 'CHANGE_STATUS_QUERY';
 export function changeQuery(candidate, certificate) {
     return {
-        type: CHANGE_QUERY,
+        type: CHANGE_STATUS_QUERY,
         candidate,
         certificate
     }
