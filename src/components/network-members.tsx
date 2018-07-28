@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import { State } from '../state/educator-network';
 
-const NetworkMembers = ({members}) => (
+export interface NetworkMembersProps extends State {}
+
+const NetworkMembers = ({members}: State) => (
     <div>
         <header>
             Educator network members:
@@ -13,11 +15,5 @@ const NetworkMembers = ({members}) => (
         </ul>
     </div>
 )
-
-NetworkMembers.propTypes = {
-    members: PropTypes.arrayOf(
-        PropTypes.string
-    )
-}
 
 export default NetworkMembers;

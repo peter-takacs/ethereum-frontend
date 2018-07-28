@@ -1,11 +1,7 @@
 
-import {
-    RECEIVE_STATUS,
-    REQUEST_STATUS
-} from '../actions';
-import { CHANGE_STATUS_QUERY } from '../actions/certificate-holder-actions';
+import { Actions, RECEIVE_STATUS, CHANGE_STATUS_QUERY } from '../actions/certificate-holder-actions';
 
-const certificateChecker = (state = {candidate: '', hasCertificate: false, certificate: ''}, action) => {
+const certificateChecker = (state = {candidate: '', hasCertificate: false, certificate: ''}, action: Actions) => {
     switch (action.type) {
         case RECEIVE_STATUS:
             return {

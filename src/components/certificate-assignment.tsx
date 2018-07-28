@@ -1,8 +1,14 @@
-import React from 'react';
+import * as React from 'react';
+import { State } from '../state/certificate-assignment';
 
-const CertificateAdder = ({status, onClick, candidate, certificate, onChange}) => {
-    let addressInput;
-    let certificateInput;
+export interface CertificateAdderProps extends State {
+    onClick: (candidate: string, certificate: string) => void;
+    onChange: (candidate: string, certificate: string) => void;
+}
+
+const CertificateAdder = ({state, onClick, candidate, certificate, onChange}: CertificateAdderProps) => {
+    let addressInput: HTMLInputElement;
+    let certificateInput: HTMLInputElement;
 
     let handleChange = () => {
         onChange(addressInput.value, certificateInput.value);

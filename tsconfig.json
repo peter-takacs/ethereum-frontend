@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es2017",
+        "jsx": "react",
+        "typeRoots": [
+            "node_modules/@types",
+            "custom_typings"
+        ]
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "lib": [
+        "dom",
+        "es2017"
+    ]
+}

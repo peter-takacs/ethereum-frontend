@@ -1,10 +1,11 @@
 
 import {
     REQUEST_SENT,
-    CHANGE_ASSIGNMENT_QUERY
+    CHANGE_ASSIGNMENT_QUERY,
+    Actions
 } from '../actions/certificate-assignment-actions';
 
-const certificateAssignment = (state = {candidate: '', status: '', certificate: ''}, action) => {
+const certificateAssignment = (state = {candidate: '', status: '', certificate: ''}, action: Actions) => {
     switch (action.type) {
         case CHANGE_ASSIGNMENT_QUERY:
             return {
