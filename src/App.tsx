@@ -7,9 +7,11 @@ import './App.css'
 import NetworkMembers from './containers/network-members';
 import CertificateChecker from './containers/certificate-checker';
 import CertificateAdder from './containers/certificate-assignment';
+import AccountDisplay from './containers/account';
 
 const App = () => (
       <div>
+        <AccountDisplay />
         <NetworkMembers />
         <CertificateChecker />
         <CertificateAdder />
