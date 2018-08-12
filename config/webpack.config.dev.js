@@ -1,12 +1,20 @@
-module.exports = {
-    entry: "./src/index.tsx",
-    output: {
-        filename: "bundle.js",
-        path: __dirname + "/dist"
-    },
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-    // Enable sourcemaps for debugging webpack's output.
+module.exports = {
+    entry: "../src/index.tsx",
+    mode: "development",
+        // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
+    output: {
+        filename: "main.js",
+        path: path.resolve(__dirname, '../dist')
+    },
+    context: __dirname,
+
+    serve: {
+        content: path.resolve(__dirname, "../dist")
+    },
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
