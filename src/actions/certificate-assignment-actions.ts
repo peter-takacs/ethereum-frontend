@@ -1,6 +1,6 @@
 import getWeb3 from "../utils/getWeb3";
 const CertificatesContract = require('../../build/contracts/Certificates.json');
-import contract from 'truffle-contract';
+import * as contract from 'truffle-contract';
 import { State } from "../state/certificate-assignment";
 import { ThunkAction } from "../../node_modules/redux-thunk";
 import { ChangeQuery } from "./certificate-holder-actions";

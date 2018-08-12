@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 const EducatorNetworkContract = require('../../build/contracts/EducatorNetwork.json');
 const CertificatesContract = require('../../build/contracts/Certificates.json');
 import getWeb3 from '../utils/getWeb3'
-import contract from 'truffle-contract';
+import * as contract from 'truffle-contract';
 import { ThunkAction } from 'redux-thunk';
 import { State } from '../state/educator-network';
 
