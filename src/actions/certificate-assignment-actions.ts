@@ -35,14 +35,15 @@ export const CHANGE_ASSIGNMENT_QUERY = 'CHANGE_ASSIGNMENT_QUERY';
 export type CHANGE_ASSIGNMENT_QUERY = typeof CHANGE_ASSIGNMENT_QUERY;
 export interface ChangeAssignment {
     type: CHANGE_ASSIGNMENT_QUERY;
-    candidate: string;
-    certificate: string;
+    query: {
+        candidate?: string,
+        certificate?: string
+    }
 }
-export function changeQuery(candidate: string, certificate: string): ChangeAssignment {
+export function changeQuery(query: {candidate?: string, certificate?: string}): ChangeAssignment {
     return {
         type: CHANGE_ASSIGNMENT_QUERY,
-        candidate,
-        certificate
+        query
     }
 }
 

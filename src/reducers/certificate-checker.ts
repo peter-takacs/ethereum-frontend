@@ -11,8 +11,8 @@ const certificateChecker = (state = {candidate: '', hasCertificate: false, certi
        case CHANGE_STATUS_QUERY:
             return {
                 ...state,
-                candidate: action.candidate,
-                certificate: action.certificate
+                candidate: action.query.candidate || state.candidate,
+                certificate: action.query.certificate || state.candidate
             }
         default:
             return state;

@@ -1,30 +1,26 @@
 import * as React from 'react';
 import { State } from '../state/certificate-assignment';
+import { FormControl, Input } from '@material-ui/core';
 
-export interface CertificateAdderProps extends State {
+export interface CertificateAssignmentDispatch {
     onClick: (candidate: string, certificate: string) => void;
-    onChange: (candidate: string, certificate: string) => void;
+    onCandidateChange: (candidate: string) => void;
+    onCertificateChange: (certificate: string) => void;
 }
 
-const CertificateAdder = ({state, onClick, candidate, certificate, onChange}: CertificateAdderProps) => {
-    let addressInput: HTMLInputElement;
-    let certificateInput: HTMLTextAreaElement;
+export type CertificateAdderProps = State & CertificateAssignmentDispatch;
 
-    let handleChange = () => {
-        onChange(addressInput.value, certificateInput.value);
-    }
+const CertificateAdder = ({state, onClick, candidate, certificate, onCandidateChange, onCertificateChange}: CertificateAdderProps) => {
+
+    const addressChange = (event: any) => onCandidateChange(event.target.value);
+    const certificateChange = (event: any) => onCertificateChange(event.target.value);
 
     return (
-        <div>
-            <header>
-            Certificate adder 
-            </header>
-            <div>
-            <input type="text" id="address" placeholder="Candidate address" value={candidate} ref={node => addressInput = node} onChange={handleChange}/>
-            <textarea id="certificate" placeholder="Certificate to add" value={certificate} ref={node => certificateInput = node} onChange={handleChange}/>
+        <FormControl>
+            <Input type="text" id="address" placeholder="Candidate address" value={candidate} onChange={addressChange}/>
+            <textarea id="certificate" placeholder="Certificate to add" value={certificate} onChange={certificateChange}/>
             <button onClick={() => onClick(candidate, certificate)}>Submit</button>
-            </div>
-        </div>
+        </FormControl>
     );
 }
 

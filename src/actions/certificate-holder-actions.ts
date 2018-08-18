@@ -37,14 +37,15 @@ export const CHANGE_STATUS_QUERY = 'CHANGE_STATUS_QUERY';
 export type CHANGE_STATUS_QUERY = typeof CHANGE_STATUS_QUERY;
 export interface ChangeQuery {
     type: CHANGE_STATUS_QUERY,
-    candidate: string,
-    certificate: string
+    query: {
+        candidate?: string,
+        certificate?: string
+    }
 }
-export function changeQuery(candidate: string, certificate: string): Actions {
+export function changeQuery(query: {candidate?: string, certificate?: string}): Actions {
     return {
         type: CHANGE_STATUS_QUERY,
-        candidate,
-        certificate
+        query
     }
 }
 

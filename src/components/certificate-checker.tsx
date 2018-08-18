@@ -1,19 +1,20 @@
 import * as React from 'react';
 import { State } from '../state/certificate-checker';
+import { Input } from '@material-ui/core';
 
-export interface CertificateCheckerProps extends State {
+export interface CertificateCheckerDispatch {
     onClick: (candidate: string, certificate: string) => void;
-    onChange: (candidate: string, certificate: string) => void;
-};
+    onCandidateChange: (candidate: string) => void;
+    onCertificateChange: (certificate: string) => void;
+}
+
+export type CertificateCheckerProps = State & CertificateCheckerDispatch;
 
 
-const CertificateChecker = ({hasCertificate, onClick, candidate, certificate, onChange}: CertificateCheckerProps) => {
-    let addressInput: HTMLInputElement;
-    let certificateInput: HTMLInputElement;
+const CertificateChecker = ({hasCertificate, onClick, candidate, certificate, onCandidateChange, onCertificateChange}: CertificateCheckerProps) => {
 
-    let handleChange = () => {
-        onChange(addressInput.value, certificateInput.value);
-    }
+    const certificateChange = (event: any) => onCertificateChange(event.target.value);
+    const candidateChange = (event: any) => onCandidateChange(event.target.value);
 
     return (
         <div>
@@ -21,8 +22,8 @@ const CertificateChecker = ({hasCertificate, onClick, candidate, certificate, on
             Certificate checker 
             </header>
             <div>
-            <input type="text" id="address" placeholder="Candidate address" value={candidate} ref={node => addressInput = node} onChange={handleChange}/>
-            <input type="text" id="certificate" placeholder="Certificate to check" value={certificate} ref={node => certificateInput = node} onChange={handleChange}/>
+            <Input type="text" id="address" placeholder="Candidate address" value={candidate} onChange={candidateChange}/>
+            <Input type="text" id="certificate" placeholder="Certificate to check" value={certificate} onChange={certificateChange}/>
             <button onClick={() => onClick(candidate, certificate)}>Submit</button>
             </div>
         </div>

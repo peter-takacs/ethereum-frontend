@@ -1,4 +1,4 @@
-import CertificateAdder from '../components/certificate-assignment';
+import CertificateAdder, { CertificateAssignmentDispatch } from '../components/certificate-assignment';
 import { requestAddition, changeQuery } from '../actions/certificate-assignment-actions';
 import { connect } from 'react-redux';
 import { State as RootState } from '../state/root';
@@ -8,7 +8,8 @@ import { Actions } from '../actions/certificate-assignment-actions';
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<CertificateAssignmentState, undefined, Actions>) => ({
     onClick: (candidate: string, certificate: string) => dispatch(requestAddition(candidate, parseInt(certificate))),
-    onChange: (candidate: string, certificate: string) => dispatch(changeQuery(candidate, certificate))
+    onCandidateChange: (candidate: string) => dispatch(changeQuery({candidate})),
+    onCertificateChange: (certificate: string) => dispatch(changeQuery({certificate}))
 })
 
 const mapStateToProps = (state: RootState) => {
@@ -18,4 +19,4 @@ const mapStateToProps = (state: RootState) => {
         state: state.certificateAssignment.state
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CertificateAdder);
+export default connect<CertificateAssignmentState, CertificateAssignmentDispatch>(mapStateToProps, mapDispatchToProps)(CertificateAdder);

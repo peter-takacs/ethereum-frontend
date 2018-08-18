@@ -62,7 +62,7 @@ const App = (props: WithStyles<typeof styles>) => {
         <div className={classes.toolbar} />
         <List>
           {links.map(link => (
-            <ListItem>
+            <ListItem key={link.path}>
               <Link to={link.path} >{link.title} </Link>
             </ListItem>
           ))}
