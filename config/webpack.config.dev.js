@@ -12,13 +12,13 @@ module.exports = {
     },
     context: __dirname,
 
-    serve: {
-        content: path.resolve(__dirname, "../dist")
-    },
-
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".json"]
+    },
+
+    devServer: {
+        historyApiFallback: true
     },
 
     module: {
@@ -53,4 +53,17 @@ module.exports = {
         "react": "React",
         "react-dom": "ReactDOM"
     }
+};
+
+const history = require('connect-history-api-fallback');
+const convert = require('koa-connect');
+
+module.exports.serve = {
+content: path.resolve(__dirname, "../dist"),
+  add: (app, middleware, options) => {
+    const historyOptions = {
+    };
+
+    app.use(convert(history(historyOptions)));
+  },
 };
