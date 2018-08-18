@@ -3,19 +3,18 @@ import "./EducatorNetwork.sol";
 
 contract Certificates {
 
-    mapping(address => uint128[]) registry;
-    mapping(uint128 => uint128) certRegistry;
+    mapping(address => uint256[]) registry;
     EducatorNetwork educatorNetwork;
     
     constructor(address educatorNetworkAddress) public {
         educatorNetwork = EducatorNetwork(educatorNetworkAddress);
     }
     
-    function getCertificates(address candidate) public view returns(uint128[]) {
+    function getCertificates(address candidate) public view returns(uint256[]) {
         return registry[candidate];
     }
 
-    function contains(uint128[] list, uint128 entry) private pure returns (bool) {
+    function contains(uint256[] list, uint256 entry) private pure returns (bool) {
         for (uint i = 0; i < list.length; i++) {
             if (list[i] == entry) {
                 return true;
@@ -24,9 +23,9 @@ contract Certificates {
         return false;
     }
 
-    function remove(uint128[] list, uint128 element) private view returns (uint128[]) {
+    function remove(uint256[] list, uint256 element) private view returns (uint256[]) {
         if (contains(list, element)) {
-            uint128[] memory result = new uint128[](list.length);
+            uint256[] memory result = new uint256[](list.length);
             uint originalIndex = 0;
             uint newIndex = 0;
             while (originalIndex < list.length) {
@@ -44,7 +43,7 @@ contract Certificates {
         return list;
     }
     
-    function revoke(address holder, uint128 certificate) public returns (bool) {
+    function revoke(address holder, uint256 certificate) public returns (bool) {
         address sender = msg.sender;
         if (educatorNetwork.isMember(sender)) {
             registry[holder] = remove(registry[holder], certificate);
@@ -53,10 +52,10 @@ contract Certificates {
         return false;
     }
 
-    function assign(address recipient, uint128 certificate) public returns (bool) {
+    function assign(address recipient, uint256 certificate) public returns (bool) {
         address sender = msg.sender;
         if (educatorNetwork.isMember(sender)) {
-            registry[recipient].push(certRegistry[certificate]);
+            registry[recipient].push(certificate);
             return true;
         }
         revert();

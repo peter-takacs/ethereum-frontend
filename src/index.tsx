@@ -8,6 +8,9 @@ import thunkMiddleware from 'redux-thunk';
 import { getMembers } from './actions/network-member-actions';
 import { requestAccount } from './actions/account-actions';
 
+import { BrowserRouter } from 'react-router-dom';
+import { render } from 'react-dom';
+
 const store = createStore(rootReducer,
   applyMiddleware(
     thunkMiddleware,
@@ -15,8 +18,10 @@ const store = createStore(rootReducer,
 store.dispatch(requestAccount() as any);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
