@@ -18,10 +18,10 @@ const App = () => (
           <Link to="check">Check certificate</Link>
           <Link to="assign">Assign certificate</Link>
         </nav>
+        <AccountDisplay />
         <Route path="/members" component={NetworkMembers}/>
         <Route path="/check" component={CertificateChecker} />
         <Route path="/assign" component={CertificateAdder} />
-        <AccountDisplay />
       </div>
     );
 
