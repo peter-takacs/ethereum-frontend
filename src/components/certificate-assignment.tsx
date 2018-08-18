@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { State } from '../state/certificate-assignment';
-import { FormControl, Input } from '@material-ui/core';
+import { FormControl, Input, Button } from '@material-ui/core';
 
 export interface CertificateAssignmentDispatch {
     onClick: (candidate: string, certificate: string) => void;
@@ -18,8 +18,8 @@ const CertificateAdder = ({state, onClick, candidate, certificate, onCandidateCh
     return (
         <FormControl>
             <Input type="text" id="address" placeholder="Candidate address" value={candidate} onChange={addressChange}/>
-            <textarea id="certificate" placeholder="Certificate to add" value={certificate} onChange={certificateChange}/>
-            <button onClick={() => onClick(candidate, certificate)}>Submit</button>
+            <Input type="text" id="certificate" placeholder="Certificate to add" value={certificate} onChange={certificateChange}/>
+            <Button onClick={() => onClick(candidate, certificate)}>Submit</Button>
         </FormControl>
     );
 }
