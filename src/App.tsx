@@ -23,6 +23,9 @@ const styles = (theme: Theme) => createStyles({
     position: 'relative',
     display: 'flex',
   },
+  flex: {
+    flexGrow: 1,
+  },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
   },
@@ -51,9 +54,10 @@ const App = (props: WithStyles<typeof styles>) => {
     <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="title" color="inherit" noWrap>
+          <Typography variant="title" color="inherit" noWrap className={classes.flex}>
             Ethereum frontend
-            </Typography>
+          </Typography>
+          <AccountDisplay />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" classes={{
@@ -70,7 +74,6 @@ const App = (props: WithStyles<typeof styles>) => {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <AccountDisplay />
         <Route path="/members" component={NetworkMembers} />
         <Route path="/check" component={CertificateChecker} />
         <Route path="/assign" component={CertificateAdder} />

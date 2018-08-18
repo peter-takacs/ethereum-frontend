@@ -10,8 +10,12 @@ const certificateAssignment = (state = {candidate: '', status: '', certificate: 
         case CHANGE_ASSIGNMENT_QUERY:
             return {
                 ...state,
-                candidate: action.query.candidate || state.candidate,
-                certificate: action.query.certificate || state.certificate
+                candidate: action.query.candidate == null 
+                            ? state.candidate 
+                            : action.query.candidate,
+                certificate: action.query.certificate == null 
+                            ? state.certificate 
+                            : action.query.certificate,
             }
         case REQUEST_SENT:
             return {

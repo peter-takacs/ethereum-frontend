@@ -20,7 +20,7 @@ const CertificateChecker = ({ hasCertificate, onClick, candidate, certificate, o
         <div>
             <FormControl>
                 <Input type="text" id="address" placeholder="Candidate address" value={candidate} onChange={candidateChange} />
-                <Input type="text" id="certificate" placeholder="Certificate to check" value={certificate} onChange={certificateChange} />
+                <Input  type="text" id="certificate" placeholder="Certificate to check" value={certificate} onChange={certificateChange} />
                 <Button onClick={() => onClick(candidate, certificate)}>Submit</Button>
             </FormControl>
         </div>
