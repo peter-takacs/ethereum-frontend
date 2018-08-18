@@ -4,15 +4,16 @@ import * as contract from 'truffle-contract';
 import { State } from "../state/certificate-assignment";
 import { ThunkAction } from "../../node_modules/redux-thunk";
 import { ChangeQuery } from "./certificate-holder-actions";
+import { sha256 } from "../../node_modules/js-sha256";
 
 export const REQUEST_ADDITION = 'REQUEST_ADDITION';
 export type REQUEST_ADDITION = typeof REQUEST_ADDITION;
 export interface RequestAddition {
     type: REQUEST_ADDITION;
     candidate: string;
-    certificate: number;
+    certificate: string;
 }
-function createRequestAddition(candidate: string, certificate: number): RequestAddition {
+function createRequestAddition(candidate: string, certificate: string): RequestAddition {
     return {
         type: REQUEST_ADDITION,
         candidate,
@@ -50,22 +51,23 @@ export function changeQuery(query: {candidate?: string, certificate?: string}): 
 export type Actions = RequestAddition | ChangeAssignment | RequestSent;
 
 
-export function requestAddition(candidate: string, certificate: number): ThunkAction<void, State, undefined, Actions>  {
-    const TODOaccount = "0xe19D07c1f95fc69103aDbAA13bC2CdDfB6c661DD";
-    
+export function requestAddition(candidate: string, certificate: string): ThunkAction<void, State, undefined, Actions>  {
     return function(dispatch) {
         dispatch(createRequestAddition(candidate, certificate));
 
         return getWeb3.then(
             ({web3}: any) => {
+                const currentAccount = web3.eth.accounts[0];
                 const certificates = contract(CertificatesContract);
                 certificates.setProvider(web3.currentProvider);
                 
-                web3.personal.unlockAccount(TODOaccount);
+                web3.personal.unlockAccount(currentAccount);
 
                 return web3.eth.getAccounts((_: any, accounts: any) => {
                     certificates.deployed().then((instance: any) => {
-                        instance.assign(candidate, certificate, {from: TODOaccount});
+                        const hashedCertificate = `0x${sha256(certificate)}`;
+                        
+                        instance.assign(candidate, web3.toBigNumber(hashedCertificate), {from: currentAccount});
                     })
                     .then(() => {
                         dispatch(requestSent());
