@@ -1,13 +1,20 @@
 
-import { Actions, RECEIVE_STATUS, CHANGE_STATUS_QUERY } from '../actions/certificate-holder-actions';
-import { State } from '../state/certificate-checker';
-
-const certificateChecker = (state: State = {candidate: '', hasCertificate: false, certificate: ''}, action: Actions) => {
+import { Actions, RECEIVE_STATUS, CHANGE_STATUS_QUERY, REQUEST_STATUS } from '../actions/certificate-holder-actions';
+import { State, CertificateCheckState } from '../state/certificate-checker';
+const defaultState = {candidate: '', certificateStatus: CertificateCheckState.Idle, certificate: ''};
+const certificateChecker = (state: State = defaultState, action: Actions): State => {
     switch (action.type) {
+        case REQUEST_STATUS:
+            return {
+                ...state,
+                certificateStatus: CertificateCheckState.Checking
+            }
         case RECEIVE_STATUS:
             return {
                 ...state,
-                hasCertificate: action.hasCertificate 
+                certificateStatus: action.hasCertificate
+                    ? CertificateCheckState.Confirmed
+                    : CertificateCheckState.Rejected
             }
        case CHANGE_STATUS_QUERY:
             return {

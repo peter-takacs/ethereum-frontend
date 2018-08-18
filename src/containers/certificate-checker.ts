@@ -11,10 +11,10 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<CertificateCheckerState, und
     onCertificateChange: (certificate: string) => dispatch(changeQuery({certificate})),
 })
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state: RootState): CertificateCheckerState => {
     return {
         candidate: state.certificateChecker.candidate,
-        hasCertificate: state.certificateChecker.hasCertificate,
+        certificateStatus: state.certificateChecker.certificateStatus,
         certificate: state.certificateChecker.certificate
     }
 }
