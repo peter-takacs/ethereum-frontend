@@ -4,19 +4,19 @@ import getWeb3 from '../utils/getWeb3'
 import * as contract from 'truffle-contract';
 import { ThunkAction } from '../../node_modules/redux-thunk';
 import { State } from '../state/certificate-checker';
+import { CandidateQuery } from '../state/candidate-query';
+import { sha256 } from '../../node_modules/js-sha256';
 
 export const REQUEST_STATUS = 'REQUEST_STATUS';
 export type REQUEST_STATUS = typeof REQUEST_STATUS;
 export interface RequestStatus {
     type: REQUEST_STATUS,
-    candidate: string,
-    certificate: number
+    query: CandidateQuery
 }
-function requestStatus(candidate: string, certificate: number): Actions {
+function requestStatus(query: CandidateQuery): Actions {
     return {
         type: REQUEST_STATUS,
-        candidate,
-        certificate
+        query
     };
 }
 
@@ -37,12 +37,9 @@ export const CHANGE_STATUS_QUERY = 'CHANGE_STATUS_QUERY';
 export type CHANGE_STATUS_QUERY = typeof CHANGE_STATUS_QUERY;
 export interface ChangeQuery {
     type: CHANGE_STATUS_QUERY,
-    query: {
-        candidate?: string,
-        certificate?: string
-    }
-}
-export function changeQuery(query: {candidate?: string, certificate?: string}): Actions {
+    query: CandidateQuery
+} 
+export function changeQuery(query: CandidateQuery): ChangeQuery {
     return {
         type: CHANGE_STATUS_QUERY,
         query
@@ -51,9 +48,9 @@ export function changeQuery(query: {candidate?: string, certificate?: string}): 
 
 export type Actions = ReceiveStatus | RequestStatus | ChangeQuery; 
 
-export function getStatus(candidate: string, certificate: number): ThunkAction<void, State, undefined, Actions> {
+export function getStatus(query: CandidateQuery): ThunkAction<void, State, undefined, Actions> {
     return function (dispatch) {
-        dispatch(requestStatus(candidate, certificate));
+        dispatch(requestStatus(query));
 
         return getWeb3
         .then((results: any) => {
@@ -63,10 +60,12 @@ export function getStatus(candidate: string, certificate: number): ThunkAction<v
             certificates.setProvider(web3.currentProvider);
             return web3.eth.getAccounts(() => {
                 certificates.deployed().then((instance: any) => {
-                    return instance.getCertificates.call(candidate)
+                    return instance.getCertificates.call(query.candidate)
                 })
                 .then((result: number[]) => {
-                    dispatch(receiveStatus(result.includes(certificate)));
+                    const hashedCertificate = sha256(query.certificate || '');
+                    const hashNumber = web3.toBigNumber(`0x${hashedCertificate}`)
+                    dispatch(receiveStatus(result.includes(hashNumber)));
                 })
             });
         });

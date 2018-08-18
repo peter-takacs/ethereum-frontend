@@ -5,6 +5,7 @@ import { State } from "../state/certificate-assignment";
 import { ThunkAction } from "../../node_modules/redux-thunk";
 import { ChangeQuery } from "./certificate-holder-actions";
 import { sha256 } from "../../node_modules/js-sha256";
+import { CandidateQuery } from "../state/candidate-query";
 
 export const REQUEST_ADDITION = 'REQUEST_ADDITION';
 export type REQUEST_ADDITION = typeof REQUEST_ADDITION;
@@ -13,11 +14,11 @@ export interface RequestAddition {
     candidate: string;
     certificate: string;
 }
-function createRequestAddition(candidate: string, certificate: string): RequestAddition {
+function createRequestAddition({candidate, certificate}: CandidateQuery): RequestAddition {
     return {
         type: REQUEST_ADDITION,
-        candidate,
-        certificate
+        candidate: candidate || '',
+        certificate: certificate || ''
     }
 }
 
@@ -36,12 +37,9 @@ export const CHANGE_ASSIGNMENT_QUERY = 'CHANGE_ASSIGNMENT_QUERY';
 export type CHANGE_ASSIGNMENT_QUERY = typeof CHANGE_ASSIGNMENT_QUERY;
 export interface ChangeAssignment {
     type: CHANGE_ASSIGNMENT_QUERY;
-    query: {
-        candidate?: string,
-        certificate?: string
-    }
+    query: CandidateQuery
 }
-export function changeQuery(query: {candidate?: string, certificate?: string}): ChangeAssignment {
+export function changeQuery(query: CandidateQuery): ChangeAssignment {
     return {
         type: CHANGE_ASSIGNMENT_QUERY,
         query
@@ -51,9 +49,9 @@ export function changeQuery(query: {candidate?: string, certificate?: string}): 
 export type Actions = RequestAddition | ChangeAssignment | RequestSent;
 
 
-export function requestAddition(candidate: string, certificate: string): ThunkAction<void, State, undefined, Actions>  {
+export function requestAddition({candidate, certificate}: CandidateQuery): ThunkAction<void, State, undefined, Actions>  {
     return function(dispatch) {
-        dispatch(createRequestAddition(candidate, certificate));
+        dispatch(createRequestAddition({candidate, certificate}));
 
         return getWeb3.then(
             ({web3}: any) => {
@@ -65,7 +63,7 @@ export function requestAddition(candidate: string, certificate: string): ThunkAc
 
                 return web3.eth.getAccounts((_: any, accounts: any) => {
                     certificates.deployed().then((instance: any) => {
-                        const hashedCertificate = `0x${sha256(certificate)}`;
+                        const hashedCertificate = `0x${sha256(certificate || '')}`;
                         
                         instance.assign(candidate, web3.toBigNumber(hashedCertificate), {from: currentAccount});
                     })
