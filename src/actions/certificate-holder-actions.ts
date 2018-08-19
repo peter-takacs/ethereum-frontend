@@ -65,7 +65,7 @@ export function getStatus(query: CandidateQuery): ThunkAction<void, State, undef
                 .then((result: number[]) => {
                     const hashedCertificate = sha256(query.certificate || '');
                     const hashNumber = web3.toBigNumber(`0x${hashedCertificate}`)
-                    dispatch(receiveStatus(result.includes(hashNumber)));
+                    dispatch(receiveStatus(result.some(result => hashNumber.equals(result))));
                 })
             });
         });
