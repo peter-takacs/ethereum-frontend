@@ -1,6 +1,10 @@
 export class Address {
     private readonly address: string;
 
+    public static isValid(address: string) {
+        return /^0x[a-fA-F0-9]{40}$/.test(address);
+    }
+
     public static fromBytes(bytes: Uint8Array): Address {
         if (bytes.length !== 20) {
             throw new Error(`Invalid amount of bytes supplied to ethereum address.`)
@@ -13,7 +17,7 @@ export class Address {
     }
 
     constructor (address: string) {
-        if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+        if (!Address.isValid(address)) {
             throw new Error(`Invalid address "${address}" supplied to ethereum address constructor.`)
         }
         this.address = address;
