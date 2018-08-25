@@ -18,13 +18,11 @@ const AddressEditor = ({address, placeholder, onChange}: AddressEditorProps) => 
     }
 
     return (
-        <div>
             <TextField 
                 placeholder={placeholder}
                 value={ address == null ? '' : address.toString()}
                 onChange={(event) => onTextChanged(event.target.value)}
             />
-        </div>
     );
 }
 
