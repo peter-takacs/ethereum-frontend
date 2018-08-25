@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "@types/jest": "^23.3.1",
+    "@types/react-test-renderer": "^16.0.2",
     "@types/web3": "^1.0.1",
     "autoprefixer": "6.5.1",
     "awesome-typescript-loader": "^5.2.0",
@@ -43,6 +44,7 @@
     "prop-types": "^15.6.2",
     "react-dev-utils": "^0.4.2",
     "react-redux": "^5.0.7",
+    "react-test-renderer": "^16.4.2",
     "recursive-readdir": "2.1.0",
     "redux": "^4.0.0",
     "source-map-loader": "^0.2.3",
