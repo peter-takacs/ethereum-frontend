@@ -10,7 +10,7 @@ export interface AddressEditorDispatch {
 
 export type AddressEditorProps = State & AddressEditorDispatch;
 
-const AddressEditor = ({address, onChange}: AddressEditorProps) => {
+const AddressEditor = ({address, placeholder, onChange}: AddressEditorProps) => {
     const onTextChanged = (text: string) => {
         if (Address.isValid(text)) {
             onChange(new Address(text));
@@ -20,6 +20,7 @@ const AddressEditor = ({address, onChange}: AddressEditorProps) => {
     return (
         <div>
             <TextField 
+                placeholder={placeholder}
                 value={ address == null ? '' : address.toString()}
                 onChange={(event) => onTextChanged(event.target.value)}
             />
