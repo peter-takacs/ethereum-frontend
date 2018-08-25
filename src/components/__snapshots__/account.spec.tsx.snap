@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders with correct account 1`] = `
+<div>
+  Current account is: 
+  0xDEADBEEF
+</div>
+`;
