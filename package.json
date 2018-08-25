@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@types/enzyme": "^3.1.13",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.1",
     "@types/react-test-renderer": "^16.0.2",
     "@types/web3": "^1.0.3",
