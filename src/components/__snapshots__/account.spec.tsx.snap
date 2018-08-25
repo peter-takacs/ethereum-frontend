@@ -3,6 +3,12 @@
 exports[`Renders with correct account 1`] = `
 <div>
   Current account is: 
-  0xDEADBEEF
+  0x1234567890abcdef01231234567890abcdef0123
+</div>
+`;
+
+exports[`Renders with empty account 1`] = `
+<div>
+  Current ETH account is unavailable.
 </div>
 `;

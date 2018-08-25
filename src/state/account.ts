@@ -1,3 +1,5 @@
+import { Address } from "../types/ethereum-address";
+
 export interface State {
-    address: string;
+    address: Address | null;
 }

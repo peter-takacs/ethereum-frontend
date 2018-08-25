@@ -2,6 +2,7 @@ import { ThunkAction } from "redux-thunk";
 import { State } from '../state/account';
 import getWeb3 from "../utils/getWeb3";
 import { getMembers } from "./network-member-actions";
+import { Address } from '../types/ethereum-address';
 
 export const REQUEST_ACCOUNT = 'REQUEST_ACCOUNT';
 export type REQUEST_ACCOUNT = typeof REQUEST_ACCOUNT;
@@ -15,9 +16,9 @@ export type SET_ACCOUNT = typeof SET_ACCOUNT;
 
 export interface SetAccount {
     type: SET_ACCOUNT;
-    address: string;
+    address: Address;
 }
-export function setAccount(address: string) : Actions {
+export function setAccount(address: Address) : Actions {
     return {
         type: SET_ACCOUNT,
         address
