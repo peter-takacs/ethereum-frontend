@@ -1,3 +1,5 @@
+import { Address } from '../types/ethereum-address';
+
 export enum CertificateQueryState {
     Idle,
     Loading,
@@ -6,7 +8,7 @@ export enum CertificateQueryState {
 }
 
 export interface State {
-    candidate: string,
+    candidate: Address | null,
     certificate: string,
     state: CertificateQueryState
 }

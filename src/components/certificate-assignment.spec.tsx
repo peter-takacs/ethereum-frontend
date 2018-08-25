@@ -13,7 +13,7 @@ test('Renders correctly in every state', () => {
     ].forEach(state => {
         const component = renderer.create(
             <CertificateAdder
-                candidate="0xABCD"
+                candidate={null}
                 certificate="0x1234"
                 onCandidateChange={() => { }}
                 onCertificateChange={() => { }}

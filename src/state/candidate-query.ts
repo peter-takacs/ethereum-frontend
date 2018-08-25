@@ -1,5 +1,6 @@
+import { Address } from "../types/ethereum-address";
 
 export interface CandidateQuery {
-    candidate?: string,
+    candidate?: Address,
     certificate?: string
 }

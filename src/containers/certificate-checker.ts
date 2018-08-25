@@ -4,10 +4,11 @@ import { getStatus, changeQuery, Actions } from '../actions/certificate-holder-a
 import { State as RootState } from '../state/root';
 import { State as CertificateCheckerState} from '../state/certificate-checker';
 import { ThunkDispatch } from 'redux-thunk';
+import { Address } from '../types/ethereum-address';
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<CertificateCheckerState, undefined, Actions>) => ({
-    onClick: (candidate: string, certificate: string) => dispatch(getStatus({candidate, certificate})),
-    onCandidateChange: (candidate: string) => dispatch(changeQuery({candidate})),
+    onClick: (candidate: Address, certificate: string) => dispatch(getStatus({candidate, certificate})),
+    onCandidateChange: (candidate: Address) => dispatch(changeQuery({candidate})),
     onCertificateChange: (certificate: string) => dispatch(changeQuery({certificate})),
 })
 
@@ -18,4 +19,7 @@ const mapStateToProps = (state: RootState): CertificateCheckerState => {
         certificate: state.certificateChecker.certificate
     }
 }
-export default connect<CertificateCheckerState, CertificateCheckerDispatch, {}, RootState>(mapStateToProps, mapDispatchToProps)(CertificateChecker);
+export default connect<CertificateCheckerState, CertificateCheckerDispatch, {}, RootState>(
+    mapStateToProps, 
+    mapDispatchToProps
+)(CertificateChecker);

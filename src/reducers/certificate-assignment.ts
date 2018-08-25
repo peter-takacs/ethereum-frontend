@@ -4,8 +4,15 @@ import {
     CHANGE_ASSIGNMENT_QUERY,
     Actions
 } from '../actions/certificate-assignment-actions';
+import { State, CertificateQueryState } from '../state/certificate-assignment';
 
-const certificateAssignment = (state = {candidate: '', status: '', certificate: ''}, action: Actions) => {
+const defaultState: State = {
+    candidate: null,
+    certificate: '',
+    state: CertificateQueryState.Idle
+}
+
+const certificateAssignment = (state: State = defaultState, action: Actions): State => {
     switch (action.type) {
         case CHANGE_ASSIGNMENT_QUERY:
             return {
@@ -20,7 +27,7 @@ const certificateAssignment = (state = {candidate: '', status: '', certificate: 
         case REQUEST_SENT:
             return {
                 ...state,
-                status: 'DONE'
+                state: CertificateQueryState.Assigned
             }
         default:
             return state;

@@ -1,7 +1,7 @@
 
 import { Actions, RECEIVE_STATUS, CHANGE_STATUS_QUERY, REQUEST_STATUS } from '../actions/certificate-holder-actions';
 import { State, CertificateCheckState } from '../state/certificate-checker';
-const defaultState = {candidate: '', certificateStatus: CertificateCheckState.Idle, certificate: ''};
+const defaultState = {candidate: null, certificateStatus: CertificateCheckState.Idle, certificate: ''};
 const certificateChecker = (state: State = defaultState, action: Actions): State => {
     switch (action.type) {
         case REQUEST_STATUS:

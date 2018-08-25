@@ -6,18 +6,19 @@ import { ThunkAction } from "../../node_modules/redux-thunk";
 import { ChangeQuery } from "./certificate-holder-actions";
 import { sha256 } from "../../node_modules/js-sha256";
 import { CandidateQuery } from "../state/candidate-query";
+import { Address } from '../types/ethereum-address';
 
 export const REQUEST_ADDITION = 'REQUEST_ADDITION';
 export type REQUEST_ADDITION = typeof REQUEST_ADDITION;
 export interface RequestAddition {
     type: REQUEST_ADDITION;
-    candidate: string;
+    candidate: Address;
     certificate: string;
 }
-function createRequestAddition({candidate, certificate}: CandidateQuery): RequestAddition {
+function createRequestAddition(candidate: Address, certificate: string): RequestAddition {
     return {
         type: REQUEST_ADDITION,
-        candidate: candidate || '',
+        candidate: candidate,
         certificate: certificate || ''
     }
 }
@@ -49,9 +50,9 @@ export function changeQuery(query: CandidateQuery): ChangeAssignment {
 export type Actions = RequestAddition | ChangeAssignment | RequestSent;
 
 
-export function requestAddition({candidate, certificate}: CandidateQuery): ThunkAction<void, State, undefined, Actions>  {
+export function requestAddition(candidate: Address, certificate: string): ThunkAction<void, State, undefined, Actions>  {
     return function(dispatch) {
-        dispatch(createRequestAddition({candidate, certificate}));
+        dispatch(createRequestAddition(candidate, certificate));
 
         return getWeb3.then(
             ({web3}: any) => {
