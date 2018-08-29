@@ -65,8 +65,14 @@ export function getAssertions(candidate: Address): ThunkAction<void, State, unde
                     return instance.getCertificates.call(candidate.toString())
                 })
                 .then((result: any[]) => {
-                    //TODO
-                    dispatch(receiveAssertions(<Assertion[]>result));
+                    let assertions: Assertion[] = [];
+                    for (let i = 0; i < result[0].length; i++) {
+                        assertions.push({
+                            certificate: result[0][i].toString(16),
+                            issuer: new Address(result[1][i])
+                        })
+                    }
+                    dispatch(receiveAssertions(assertions));
                 })
             });
         });
