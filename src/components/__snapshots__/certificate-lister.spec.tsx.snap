@@ -61,7 +61,7 @@ exports[`Renders correctly in every state without results 1`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    Result
+    <ul />
   </div>
 </div>
 `;
@@ -127,7 +127,7 @@ exports[`Renders correctly in every state without results 2`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    Result
+    <ul />
   </div>
 </div>
 `;
@@ -193,7 +193,7 @@ exports[`Renders correctly in every state without results 3`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    Result
+    <ul />
   </div>
 </div>
 `;
@@ -259,7 +259,7 @@ exports[`Renders correctly in every state without results 4`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    Result
+    <ul />
   </div>
 </div>
 `;
@@ -322,7 +322,7 @@ exports[`Renders correctly with invalid address 1`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    Result
+    <ul />
   </div>
 </div>
 `;
@@ -388,7 +388,20 @@ exports[`Renders correctly with results 1`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    Result
+    <ul>
+      <li>
+        test
+        (issued by: 
+        0xdf3f619804a92fdb4057192dc43dd748ea778adc
+        )
+      </li>
+      <li>
+        foo
+        (issued by: 
+        0x27ecd0a598e76f8a2fd264d427df0a119903e8ea
+        )
+      </li>
+    </ul>
   </div>
 </div>
 `;

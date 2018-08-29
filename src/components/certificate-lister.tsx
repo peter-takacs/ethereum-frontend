@@ -53,8 +53,17 @@ class CertificateLister extends React.Component<CertificateListerProps, State> {
                     </FormControl>
                 </Grid>
                 <Grid item xs>
-                    Result
-            </Grid>
+                    <ul>
+                        {this.props.results.map(assertion => {
+                            return (
+                                <li key={assertion.certificate}>
+                                    {assertion.certificate} 
+                                    (issued by: {assertion.issuer.toString()})
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </Grid>
             </Grid>
         );
     }

@@ -397,8 +397,8 @@ exports[`Renders correctly with a correct address 1`] = `
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
-        disabled={true}
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -410,7 +410,7 @@ exports[`Renders correctly with a correct address 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="-1"
+        tabIndex="0"
         type="button"
       >
         <span
@@ -418,6 +418,9 @@ exports[`Renders correctly with a correct address 1`] = `
         >
           Submit
         </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
       </button>
     </div>
   </div>
