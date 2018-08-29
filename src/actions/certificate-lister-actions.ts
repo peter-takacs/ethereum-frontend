@@ -7,7 +7,7 @@ import { State } from '../state/certificate-checker';
 import { CandidateQuery } from '../state/candidate-query';
 import { sha256 } from '../../node_modules/js-sha256';
 import { Address } from '../types/ethereum-address';
-import { Assertion } from '../state/assertion';
+import { Assertion } from '../types/assertion';
 
 export const REQUEST_ASSERTIONS = 'REQUEST_ASSERTIONS';
 export type REQUEST_ASSERTIONS = typeof REQUEST_ASSERTIONS;

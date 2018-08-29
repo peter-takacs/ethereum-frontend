@@ -4,7 +4,7 @@ import CertificateChecker from './certificate-checker';
 import { dummyAddress } from '../utils/test/address';
 import CertificateLister from './certificate-lister';
 import { EthereumOperationState } from '../state/ethereum-operation-state';
-import { Assertion } from '../state/assertion';
+import { Assertion } from '../types/assertion';
 
 test('Renders correctly in every state without results', () => {
     [
@@ -38,6 +38,19 @@ test('Renders correctly with results', () => {
             onSubmit={() => { }}
             status={EthereumOperationState.Completed}
             results={dummyAssertions} />
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+})
+
+test('Renders correctly with invalid address', () => {
+    const component = renderer.create(
+        <CertificateLister
+            candidate={null}
+            onCandidateChange={() => { }}
+            onSubmit={() => { }}
+            status={EthereumOperationState.Completed}
+            results={[] as Assertion[]} />
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

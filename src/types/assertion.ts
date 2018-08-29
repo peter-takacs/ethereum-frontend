@@ -1,4 +1,4 @@
-import { Address } from "../types/ethereum-address";
+import { Address } from "./ethereum-address";
 
 export interface Assertion {
     certificate: string;
