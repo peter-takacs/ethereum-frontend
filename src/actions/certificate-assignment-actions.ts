@@ -66,7 +66,7 @@ export function requestAddition(candidate: Address, certificate: string): ThunkA
                     certificates.deployed().then((instance: any) => {
                         const hashedCertificate = `0x${sha256(certificate || '')}`;
                         
-                        instance.assign(candidate, web3.toBigNumber(hashedCertificate), {from: currentAccount});
+                        instance.assign(candidate.toString(), web3.toBigNumber(hashedCertificate), {from: currentAccount});
                     })
                     .then(() => {
                         dispatch(requestSent());

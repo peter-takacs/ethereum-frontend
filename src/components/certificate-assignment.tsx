@@ -15,39 +15,29 @@ export interface CertificateAssignmentDispatch {
 export type CertificateAdderProps = State & CertificateAssignmentDispatch;
 
 export class CertificateAdder extends React.Component<CertificateAdderProps> {
-    private readonly onClick: (candidate: Address, certificate: string) => void;
-    private readonly candidate: Address | null;
-    private readonly certificate: string;
-    private readonly onCandidateChange: (candidate: Address) => void;
-    private readonly onCertificateChange: (certificate: string) => void;
-
-
+    
     private addressChange(address: Address) {
-        this.onCandidateChange(address);
+        this.props.onCandidateChange(address);
     }
     private certificateChange(event: any) {
-        this.onCertificateChange(event.target.value);
+        this.props.onCertificateChange(event.target.value);
     }
 
-    private get isValid() {
-        if (this.candidate == null || this.certificate == null) {
-            return;
+    private static isValid(props: CertificateAdderProps): boolean {
+        if (props.candidate == null || props.certificate == null) {
+            return false;
         }
+        return true;
     }
 
     private onSubmitClicked() {
-        if (this.isValid) {
-            this.onClick(this.candidate!, this.certificate);
+        if (CertificateAdder.isValid(this.props)) {
+            this.props.onClick(this.props.candidate!, this.props.certificate);
         }
     }
 
     constructor(props: CertificateAdderProps) {
         super(props);
-        this.onClick = props.onClick;
-        this.candidate = props.candidate;
-        this.certificate = props.certificate;
-        this.onCandidateChange = props.onCandidateChange;
-        this.onCertificateChange = props.onCertificateChange;
     }
 
     public render() {
@@ -56,26 +46,26 @@ export class CertificateAdder extends React.Component<CertificateAdderProps> {
                 <Grid item xs>
                     <FormControl>
                         <AddressEditor
-                            address={this.candidate}
+                            address={this.props.candidate}
                             placeholder="Candidate address"
-                            onChange={this.addressChange}
+                            onChange={(address) => this.addressChange(address)}
                         />
                         <TextField type="text" id="certificate"
                             placeholder="Certificate to add"
-                            value={this.certificate}
-                            onChange={this.certificateChange}
+                            value={this.props.certificate}
+                            onChange={(certificate) => this.certificateChange(certificate)}
                             multiline={true}
                             rows={4} />
                         <Button 
-                            onClick={this.onSubmitClicked}
-                            disabled={!this.isValid}
+                            onClick={() => this.onSubmitClicked()}
+                            disabled={!CertificateAdder.isValid(this.props)}
                         >
                             Submit
                         </Button>
                     </FormControl>
                 </Grid>
                 <Grid item xs>
-                    Hash of current assertion to be submitted: {sha256(this.certificate || '')}
+                    Hash of current assertion to be submitted: {sha256(this.props.certificate || '')}
                 </Grid>
             </Grid>
         );

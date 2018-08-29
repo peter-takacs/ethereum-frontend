@@ -15,34 +15,23 @@ export interface CertificateListerDispatch {
 export type CertificateListerProps = CertificateListerDispatch & State;
 
 class CertificateLister extends React.Component<CertificateListerProps, State> {
-    candidate: Address | null;
-    status: EthereumOperationState;
-    results: Assertion[];
-    onCandidateChange: (candidate: Address) => void;
-    onSubmit: (candidate: Address) => void;
-
-    private get isValid() {
-        return this.candidate != null;
+    
+    private static isValid(props: CertificateListerProps) {
+        return props.candidate != null;
     }
 
     private candidateChange(candidate: Address) {
-        this.onCandidateChange(candidate);
+        this.props.onCandidateChange(candidate);
     }
 
     private submitClicked() {
-        if (this.isValid) {
-            this.onSubmit(this.candidate!);
+        if (CertificateLister.isValid(this.props)) {
+            this.props.onSubmit(this.props.candidate!);
         }
     }
     
     constructor(props: CertificateListerProps) {
         super(props);
-        let {candidate, status, results, onCandidateChange, onSubmit} = props;
-        this.candidate = candidate;
-        this.status = status;
-        this.results = results;
-        this.onCandidateChange = onCandidateChange;
-        this.onSubmit = onSubmit;
     }
     
     public render(): JSX.Element {
@@ -52,12 +41,12 @@ class CertificateLister extends React.Component<CertificateListerProps, State> {
                     <FormControl>
                         <AddressEditor
                             placeholder="Candidate address"
-                            address={this.candidate}
-                            onChange={this.candidateChange}
+                            address={this.props.candidate}
+                            onChange={(c) => this.candidateChange(c)}
                         />
                         <Button 
-                            disabled={!this.isValid}
-                            onClick={this.submitClicked}
+                            disabled={!CertificateLister.isValid(this.props)}
+                            onClick={() => this.submitClicked()}
                         >
                             Submit
                         </Button>

@@ -60,7 +60,10 @@ export function getStatus(query: CandidateQuery): ThunkAction<void, State, undef
             certificates.setProvider(web3.currentProvider);
             return web3.eth.getAccounts(() => {
                 certificates.deployed().then((instance: any) => {
-                    return instance.getCertificates.call(query.candidate)
+                    if (query.candidate == null) {
+                        return;
+                    }
+                    return instance.getCertificates.call(query.candidate.toString())
                 })
                 .then((result: number[]) => {
                     const hashedCertificate = sha256(query.certificate || '');

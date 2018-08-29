@@ -13,54 +13,42 @@ export interface CertificateCheckerDispatch {
 export type CertificateCheckerProps = State & CertificateCheckerDispatch;
 
 export class CertificateChecker extends React.Component<CertificateCheckerProps> {
-    private readonly onClick: (candidate: Address, certificate: string) => void;
-    private readonly candidate: Address | null;
-    private readonly certificate: string;
-    private readonly onCandidateChange: (candidate: Address) => void;
-    private readonly onCertificateChange: (certificate: string) => void;
-    private readonly resultText: string;
-
 
     private candidateChange(address: Address) {
-        this.onCandidateChange(address);
+        this.props.onCandidateChange(address);
     }
     private certificateChange(event: any) {
-        this.onCertificateChange(event.target.value);
+        this.props.onCertificateChange(event.target.value);
     }
 
-    private get isValid() {
-        if (this.candidate == null || this.certificate == null) {
-            return;
+    private get isValid(): boolean {
+        if (this.props.candidate == null || this.props.certificate == null) {
+            return false;
         }
+        return true;
     }
 
     private onSubmitClicked() {
         if (this.isValid) {
-            this.onClick(this.candidate!, this.certificate);
+            this.props.onClick(this.props.candidate!, this.props.certificate);
         }
+    }
+
+    private get resultText() {
+        switch (this.props.certificateStatus) {
+            case CertificateCheckState.Checking:
+                return 'Loading...';
+            case CertificateCheckState.Confirmed:
+                return 'The given address has the certificate';
+            case CertificateCheckState.Rejected:
+                return 'The given addres does not have the certificate';
+            default:
+                return '';
+        }        
     }
 
     constructor(props: CertificateCheckerProps) {
         super(props);
-        this.onClick = props.onClick;
-        this.candidate = props.candidate;
-        this.certificate = props.certificate;
-        this.onCandidateChange = props.onCandidateChange;
-        this.onCertificateChange = props.onCertificateChange;
-        switch (props.certificateStatus) {
-            case CertificateCheckState.Checking:
-                this.resultText = 'Loading...';
-                break;
-            case CertificateCheckState.Confirmed:
-                this.resultText = 'The given address has the certificate';
-                break;
-            case CertificateCheckState.Rejected:
-                this.resultText = 'The given addres does not have the certificate';
-                break;
-            default:
-                this.resultText = '';
-                break;
-        }
 
     }
 
@@ -71,14 +59,14 @@ export class CertificateChecker extends React.Component<CertificateCheckerProps>
                     <FormControl>
                         <AddressEditor
                             placeholder="Candidate address"
-                            address={this.candidate}
-                            onChange={this.candidateChange}
+                            address={this.props.candidate}
+                            onChange={(c) => this.candidateChange(c)}
                         />
                         <TextField 
                             id="certificate" 
                             placeholder="Certificate to check" 
-                            value={this.certificate} 
-                            onChange={this.certificateChange} 
+                            value={this.props.certificate} 
+                            onChange={(c) =>  this.certificateChange(c)} 
                         />
                         <Button onClick={() => this.onSubmitClicked()}>Submit</Button>
                     </FormControl>
