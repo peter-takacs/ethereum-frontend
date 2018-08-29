@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly in every state 1`] = `
+exports[`Renders correctly in every state without results 1`] = `
 <div
   className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
 >
@@ -27,27 +27,6 @@ exports[`Renders correctly in every state 1`] = `
             required={false}
             type="text"
             value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
-          />
-        </div>
-      </div>
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
-        >
-          <input
-            aria-invalid={false}
-            className="MuiInput-input-110"
-            disabled={false}
-            id="certificate"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Certificate to check"
-            required={false}
-            type="text"
-            value="0x1234"
           />
         </div>
       </div>
@@ -82,12 +61,12 @@ exports[`Renders correctly in every state 1`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    
+    Result
   </div>
 </div>
 `;
 
-exports[`Renders correctly in every state 2`] = `
+exports[`Renders correctly in every state without results 2`] = `
 <div
   className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
 >
@@ -114,27 +93,6 @@ exports[`Renders correctly in every state 2`] = `
             required={false}
             type="text"
             value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
-          />
-        </div>
-      </div>
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
-        >
-          <input
-            aria-invalid={false}
-            className="MuiInput-input-110"
-            disabled={false}
-            id="certificate"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Certificate to check"
-            required={false}
-            type="text"
-            value="0x1234"
           />
         </div>
       </div>
@@ -169,12 +127,12 @@ exports[`Renders correctly in every state 2`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    Loading...
+    Result
   </div>
 </div>
 `;
 
-exports[`Renders correctly in every state 3`] = `
+exports[`Renders correctly in every state without results 3`] = `
 <div
   className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
 >
@@ -201,27 +159,6 @@ exports[`Renders correctly in every state 3`] = `
             required={false}
             type="text"
             value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
-          />
-        </div>
-      </div>
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
-        >
-          <input
-            aria-invalid={false}
-            className="MuiInput-input-110"
-            disabled={false}
-            id="certificate"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Certificate to check"
-            required={false}
-            type="text"
-            value="0x1234"
           />
         </div>
       </div>
@@ -256,12 +193,12 @@ exports[`Renders correctly in every state 3`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    The given address has the certificate
+    Result
   </div>
 </div>
 `;
 
-exports[`Renders correctly in every state 4`] = `
+exports[`Renders correctly in every state without results 4`] = `
 <div
   className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
 >
@@ -288,27 +225,6 @@ exports[`Renders correctly in every state 4`] = `
             required={false}
             type="text"
             value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
-          />
-        </div>
-      </div>
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
-        >
-          <input
-            aria-invalid={false}
-            className="MuiInput-input-110"
-            disabled={false}
-            id="certificate"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Certificate to check"
-            required={false}
-            type="text"
-            value="0x1234"
           />
         </div>
       </div>
@@ -343,7 +259,73 @@ exports[`Renders correctly in every state 4`] = `
   <div
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
-    The given addres does not have the certificate
+    Result
+  </div>
+</div>
+`;
+
+exports[`Renders correctly with results 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    Result
   </div>
 </div>
 `;
