@@ -62,7 +62,7 @@ export function getAssertions(candidate: Address): ThunkAction<void, State, unde
             certificates.setProvider(web3.currentProvider);
             return web3.eth.getAccounts(() => {
                 certificates.deployed().then((instance: any) => {
-                    return instance.getCertificates.call(candidate)
+                    return instance.getCertificates.call(candidate.toString())
                 })
                 .then((result: any[]) => {
                     //TODO

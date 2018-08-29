@@ -16,18 +16,20 @@ contract Certificates {
         educatorNetwork = EducatorNetwork(educatorNetworkAddress);
     }
     
-    function getCertificates(address candidate) public view returns(uint256[]) {
+    function getCertificates(address candidate) public view returns(uint256[], address[]) {
         if (registry[candidate].length == 0) {
-            return new uint256[](0);
+            return (new uint256[](0), new address[](0));
         }
         Assertion[] memory candidateAssertions = registry[candidate];
         uint256[] memory result = new uint256[](candidateAssertions.length);
+        address[] memory issuers = new address[](candidateAssertions.length);
         for (uint i = 0; i < result.length; i++) {
             if (!candidateAssertions[i].isRevoked) {
                 result[i] = candidateAssertions[i].hashedAssertion;
+                issuers[i] = candidateAssertions[i].issuer;
             }
         }
-        return result;
+        return (result, issuers);
     }
 
     function contains(uint256[] list, uint256 entry) private pure returns (bool) {
@@ -59,7 +61,7 @@ contract Certificates {
         if (educatorNetwork.isMember(sender)) {
             Assertion memory assertion;
             assertion.hashedAssertion = certificate;
-            assertion.isRevoked = true;
+            assertion.isRevoked = false;
             assertion.issuer = sender;
             registry[recipient].push(assertion);
             return true;
