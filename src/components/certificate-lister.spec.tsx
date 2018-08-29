@@ -18,7 +18,7 @@ test('Renders correctly in every state without results', () => {
                 candidate={dummyAddress(0)}
                 onCandidateChange={() => { }}
                 onSubmit={() => { }}
-                state={state}
+                status={state}
                 results={[] as Assertion[]} />
         );
         const tree = component.toJSON();
@@ -36,7 +36,7 @@ test('Renders correctly with results', () => {
             candidate={dummyAddress(0)}
             onCandidateChange={() => { }}
             onSubmit={() => { }}
-            state={EthereumOperationState.Completed}
+            status={EthereumOperationState.Completed}
             results={dummyAssertions} />
     );
     const tree = component.toJSON();

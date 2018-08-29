@@ -12,7 +12,7 @@ export interface CertificateListerDispatch {
 
 export type CertificateListerProps = CertificateListerDispatch & State;
 
-const CertificateLister = ({candidate, state, results, onCandidateChange, onSubmit}: CertificateListerProps) => {
+const CertificateLister = ({candidate, status, results, onCandidateChange, onSubmit}: CertificateListerProps) => {
     const candidateChange = onCandidateChange;
     const submitClicked = () => onSubmit(candidate);
     

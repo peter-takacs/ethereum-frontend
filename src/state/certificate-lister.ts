@@ -3,7 +3,7 @@ import { EthereumOperationState } from "./ethereum-operation-state";
 import { Assertion } from "./assertion";
 
 export interface State {
-    candidate: Address,
-    state: EthereumOperationState,
+    candidate: Address | null,
+    status: EthereumOperationState,
     results: Assertion[]
 }
