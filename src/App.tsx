@@ -13,6 +13,7 @@ import { Link, Route } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, Typography, Drawer, withStyles, createStyles, Theme, WithStyles, List, ListItem, ListItemText } from '@material-ui/core';
+import CertificateLister from './components/certificate-lister';
 
 const drawerWidth = 240;
 const styles = (theme: Theme) => createStyles({
@@ -46,6 +47,7 @@ const links = [
   {path: 'members', title: 'Members'},
   {path: 'check', title: 'Check certificate'},
   {path: 'assign', title: 'Assign certificate'},
+  {path: 'lister', title: 'List certificates'}
 ]
 
 const App = (props: WithStyles<typeof styles>) => {
@@ -77,6 +79,7 @@ const App = (props: WithStyles<typeof styles>) => {
         <Route path="/members" component={NetworkMembers} />
         <Route path="/check" component={CertificateChecker} />
         <Route path="/assign" component={CertificateAdder} />
+        <Route path="/lister" component={CertificateLister} />
       </main>
     </div>
   );
