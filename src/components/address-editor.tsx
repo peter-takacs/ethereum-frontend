@@ -5,7 +5,7 @@ import { TextField } from '@material-ui/core';
 import { Address } from '../types/ethereum-address';
 
 export interface AddressEditorDispatch {
-    onChange: (address: Address) => void;
+    onChange: (address: Address | null) => void;
 }
 
 export type AddressEditorProps = State & AddressEditorDispatch;
@@ -27,6 +27,9 @@ class AddressEditor extends React.Component<AddressEditorProps, AddressEditorSta
         this.setState({text});
         if (Address.isValid(text)) {
             this.props.onChange(new Address(text));
+        }
+        else {
+            this.props.onChange(null);
         }
     }
 

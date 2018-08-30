@@ -42,7 +42,7 @@ class CertificateLister extends React.Component<CertificateListerProps, State> {
                         <AddressEditor
                             placeholder="Candidate address"
                             address={this.props.candidate}
-                            onChange={(c) => this.candidateChange(c)}
+                            onChange={(c) => c && this.candidateChange(c)}
                         />
                         <Button 
                             disabled={!CertificateLister.isValid(this.props)}

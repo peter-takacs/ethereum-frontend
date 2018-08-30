@@ -49,7 +49,7 @@ class NetworkMemberAddition extends React.Component<NetworkMemberAdditionProps, 
         }
     }
     
-    onAddressChanged(memberAddress: Address): void {
+    onAddressChanged(memberAddress: Address | null): void {
         this.setState({
             memberAddress
         });

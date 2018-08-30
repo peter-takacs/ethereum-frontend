@@ -60,7 +60,7 @@ export class CertificateChecker extends React.Component<CertificateCheckerProps>
                         <AddressEditor
                             placeholder="Candidate address"
                             address={this.props.candidate}
-                            onChange={(c) => this.candidateChange(c)}
+                            onChange={(c) => c && this.candidateChange(c)}
                         />
                         <TextField 
                             id="certificate" 

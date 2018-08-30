@@ -48,7 +48,7 @@ export class CertificateAdder extends React.Component<CertificateAdderProps> {
                         <AddressEditor
                             address={this.props.candidate}
                             placeholder="Candidate address"
-                            onChange={(address) => this.addressChange(address)}
+                            onChange={(address) => address && this.addressChange(address)}
                         />
                         <TextField type="text" id="certificate"
                             placeholder="Certificate to add"
