@@ -5,6 +5,7 @@ import getWeb3 from '../utils/getWeb3'
 import * as contract from 'truffle-contract';
 import { ThunkAction } from 'redux-thunk';
 import { State } from '../state/educator-network';
+import { Address } from '../types/ethereum-address';
 
 export const REQUEST_MEMBERS = 'REQUEST_MEMBERS';
 export type REQUEST_MEMBERS = typeof REQUEST_MEMBERS;
@@ -31,7 +32,14 @@ function receiveMembers(members: string[]): Actions {
     }
 }
 
-export type Actions = ReceiveMembers | RequestMembers;
+const REQUEST_ADDITION = 'REQUEST_ADDITION';
+export type REQUEST_ADDITION = typeof REQUEST_ADDITION;
+interface RequestAddition {
+    type: REQUEST_ADDITION;
+    member: Address;
+}
+
+export type Actions = ReceiveMembers | RequestMembers | RequestAddition;
 
 export function getMembers(): ThunkAction<void, State, undefined, Actions> {
     return function (dispatch) {
@@ -52,5 +60,26 @@ export function getMembers(): ThunkAction<void, State, undefined, Actions> {
                 })
             });
         });
+    }
+}
+
+export function requestAddition(member: Address) : ThunkAction<void, State, undefined, Actions> {
+    return function (dispatch) {
+        return getWeb3.then(({web3}: any) => {
+            const currentAccount = web3.eth.accounts[0];
+            web3.personal.unlockAccount(currentAccount);
+
+            const educatorNetwork = contract(EducatorNetworkContract);
+            educatorNetwork.setProvider(web3.currentProvider);
+
+            return web3.eth.getAccounts((_: any, ) => {
+                educatorNetwork.deployed().then((instance: any) => {
+                    return instance.requestAddition(member, {from: currentAccount, gas: 500000})
+                })
+                .then(() => {
+                    getMembers();
+                })
+            })
+        })
     }
 }
