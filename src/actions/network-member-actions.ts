@@ -78,7 +78,7 @@ export function requestAddition(member: Address) : ThunkAction<void, NetworkMemb
                     return instance.requestAddition(member.toString(), {from: currentAccount, gas: 500000})
                 })
                 .then(() => {
-                    getMembers();
+                    dispatch(getMembers() as any); //TODO
                 })
             })
         })
