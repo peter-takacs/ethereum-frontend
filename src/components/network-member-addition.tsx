@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Address } from '../types/ethereum-address';
 import { EthereumOperationState } from '../state/ethereum-operation-state';
+import { NetworkMemberAdditionState } from '../state/network-member-addition';
 import { Grid, Button } from '@material-ui/core';
 import AddressEditor from './address-editor';
 
@@ -8,9 +9,6 @@ export interface NetworkMemberAdditionDispatch {
     onSubmit: (address: Address) => void;
 }
 
-export interface NetworkMemberAdditionState {
-    status: EthereumOperationState;
-};
 
 export type NetworkMemberAdditionProps = NetworkMemberAdditionDispatch & NetworkMemberAdditionState;
 
