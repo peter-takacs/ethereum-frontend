@@ -14,6 +14,7 @@ import { Link, Route } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, Typography, Drawer, withStyles, createStyles, Theme, WithStyles, List, ListItem, ListItemText } from '@material-ui/core';
+import NetworkMemberAddition from './components/network-member-addition';
 
 const drawerWidth = 240;
 const styles = (theme: Theme) => createStyles({
@@ -47,7 +48,8 @@ const links = [
   {path: 'members', title: 'Members'},
   {path: 'check', title: 'Check certificate'},
   {path: 'assign', title: 'Assign certificate'},
-  {path: 'lister', title: 'List certificates'}
+  {path: 'lister', title: 'List certificates'},
+  {path: 'network-addition', title: 'Add members'}
 ]
 
 const App = (props: WithStyles<typeof styles>) => {
@@ -80,6 +82,7 @@ const App = (props: WithStyles<typeof styles>) => {
         <Route path="/check" component={CertificateChecker} />
         <Route path="/assign" component={CertificateAdder} />
         <Route path="/lister" component={CertificateLister} />
+        <Route path="/network-addition" component={NetworkMemberAddition} />
       </main>
     </div>
   );
