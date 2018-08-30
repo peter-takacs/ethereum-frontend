@@ -10,20 +10,35 @@ export interface AddressEditorDispatch {
 
 export type AddressEditorProps = State & AddressEditorDispatch;
 
-const AddressEditor = ({address, placeholder, onChange}: AddressEditorProps) => {
-    const onTextChanged = (text: string) => {
+interface AddressEditorState {
+    text: string | null;
+}
+
+class AddressEditor extends React.Component<AddressEditorProps, AddressEditorState> {
+
+    constructor(props: AddressEditorProps) {
+        super(props);
+        this.state = {
+            text: props.address && props.address.toString()
+        };
+    }
+    
+    private onTextChanged (text: string) {
+        this.setState({text});
         if (Address.isValid(text)) {
-            onChange(new Address(text));
+            this.props.onChange(new Address(text));
         }
     }
 
-    return (
-            <TextField 
-                placeholder={placeholder}
-                value={ address == null ? '' : address.toString()}
-                onChange={(event) => onTextChanged(event.target.value)}
+    render() {
+        return (
+            <TextField
+                placeholder={this.props.placeholder}
+                value={this.state.text || ''}
+                onChange={(event) => this.onTextChanged(event.target.value)}
             />
-    );
+        );
+    }
 }
 
 export default AddressEditor;

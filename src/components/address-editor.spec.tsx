@@ -82,5 +82,5 @@ describe('Actions', () => {
         onChange(textChange('gjhrbgakjsheb'));
         
         expect(props.onChange).not.toHaveBeenCalled();
-    })
+    });
 })
