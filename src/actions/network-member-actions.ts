@@ -6,6 +6,7 @@ import * as contract from 'truffle-contract';
 import { ThunkAction } from 'redux-thunk';
 import { State } from '../state/educator-network';
 import { Address } from '../types/ethereum-address';
+import { NetworkMemberAdditionState } from '../state/network-member-addition';
 
 export const REQUEST_MEMBERS = 'REQUEST_MEMBERS';
 export type REQUEST_MEMBERS = typeof REQUEST_MEMBERS;
@@ -63,7 +64,7 @@ export function getMembers(): ThunkAction<void, State, undefined, Actions> {
     }
 }
 
-export function requestAddition(member: Address) : ThunkAction<void, State, undefined, Actions> {
+export function requestAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
     return function (dispatch) {
         return getWeb3.then(({web3}: any) => {
             const currentAccount = web3.eth.accounts[0];
@@ -74,7 +75,7 @@ export function requestAddition(member: Address) : ThunkAction<void, State, unde
 
             return web3.eth.getAccounts((_: any, ) => {
                 educatorNetwork.deployed().then((instance: any) => {
-                    return instance.requestAddition(member, {from: currentAccount, gas: 500000})
+                    return instance.requestAddition(member.toString(), {from: currentAccount, gas: 500000})
                 })
                 .then(() => {
                     getMembers();

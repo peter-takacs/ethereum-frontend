@@ -45,7 +45,7 @@ class NetworkMemberAddition extends React.Component<NetworkMemberAdditionProps, 
 
     onSubmit(): void {
         if (this.state.memberAddress != null) {
-            this.props.onSubmit
+            this.props.onSubmit(this.state.memberAddress);
         }
     }
     

@@ -9,12 +9,12 @@ import CertificateChecker from './containers/certificate-checker';
 import CertificateAdder from './containers/certificate-assignment';
 import AccountDisplay from './containers/account';
 import CertificateLister from './containers/certificate-lister';
+import NetworkMemberAddition from './containers/network-member-addition';
 
 import { Link, Route } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, Typography, Drawer, withStyles, createStyles, Theme, WithStyles, List, ListItem, ListItemText } from '@material-ui/core';
-import NetworkMemberAddition from './components/network-member-addition';
 
 const drawerWidth = 240;
 const styles = (theme: Theme) => createStyles({

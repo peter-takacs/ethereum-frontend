@@ -5,11 +5,11 @@ import { State as RootState } from '../state/root';
 import { ThunkDispatch } from 'redux-thunk';
 import { Actions } from '../actions/network-member-actions';
 import { Address } from '../types/ethereum-address';
-import { NetworkMemberAdditionProps, NetworkMemberAdditionDispatch } from '../components/network-member-addition';
+import NetworkMemberAddition, { NetworkMemberAdditionProps, NetworkMemberAdditionDispatch } from '../components/network-member-addition';
 import { NetworkMemberAdditionState } from '../state/network-member-addition';
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<NetworkMemberAdditionProps, undefined, Actions>): NetworkMemberAdditionDispatch => ({
-    onSubmit: (member: Address) => requestAddition(member)
+const mapDispatchToProps = (dispatch: ThunkDispatch<NetworkMemberAdditionState, undefined, Actions>): NetworkMemberAdditionDispatch => ({
+    onSubmit: (member: Address) => dispatch(requestAddition(member))
 })
 
 const mapStateToProps = (state: RootState): NetworkMemberAdditionState => {
@@ -20,4 +20,4 @@ const mapStateToProps = (state: RootState): NetworkMemberAdditionState => {
 export default connect<NetworkMemberAdditionState, NetworkMemberAdditionDispatch, {}, RootState>(
     mapStateToProps, 
     mapDispatchToProps)
-(CertificateAdder);
+(NetworkMemberAddition);

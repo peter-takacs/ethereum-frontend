@@ -3,6 +3,7 @@ import educatorNetwork from './educator-network';
 import certificateChecker from './certificate-checker';
 import certificateAssignment from './certificate-assignment';
 import certificateLister from './certificate-lister';
+import networkMemberAddition from './network-member-additions';
 import account from './account';
 
 export const rootReducer = combineReducers({
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
     educatorNetwork,
     certificateChecker,
     certificateLister,
+    networkMemberAddition
 });
