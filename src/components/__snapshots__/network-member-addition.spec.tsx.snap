@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly in every state without results 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiFormControl-root-98"
+  >
+    <div
+      className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInput-input-110"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Candidate to be added"
+        required={false}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+    disabled={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="-1"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-116"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Renders correctly in every state without results 2`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiFormControl-root-98"
+  >
+    <div
+      className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInput-input-110"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Candidate to be added"
+        required={false}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+    disabled={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="-1"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-116"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Renders correctly in every state without results 3`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiFormControl-root-98"
+  >
+    <div
+      className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInput-input-110"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Candidate to be added"
+        required={false}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+    disabled={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="-1"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-116"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Renders correctly in every state without results 4`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiFormControl-root-98"
+  >
+    <div
+      className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInput-input-110"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Candidate to be added"
+        required={false}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+    disabled={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="-1"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-116"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Renders correctly with invalid address 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiFormControl-root-98"
+  >
+    <div
+      className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInput-input-110"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Candidate to be added"
+        required={false}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+    disabled={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="-1"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-116"
+    >
+      Submit
+    </span>
+  </button>
+</div>
+`;
