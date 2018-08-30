@@ -71,7 +71,7 @@ describe('Actions', () => {
         expect(props.onChange).toHaveBeenCalledWith(expect.any(Address));
     });
 
-    it('Should not call onChange if the input is changed to an invalid address', () => {
+    it('Should call onChange with null if the input is changed to an invalid address', () => {
         const { enzymeWrapper, props } = setup(dummyAddress);
         const input = enzymeWrapper.find('TextField');
         const onChange = input.props().onChange;
@@ -81,6 +81,6 @@ describe('Actions', () => {
         }
         onChange(textChange('gjhrbgakjsheb'));
         
-        expect(props.onChange).not.toHaveBeenCalled();
+        expect(props.onChange).toHaveBeenCalledWith(null);
     });
 })
