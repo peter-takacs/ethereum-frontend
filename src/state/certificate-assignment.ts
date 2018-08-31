@@ -7,8 +7,6 @@ export enum CertificateQueryState {
     NotAssigned
 }
 
-export interface State {
-    candidate: Address | null,
-    certificate: string,
+export interface CertificateAdderState {
     state: CertificateQueryState
 }

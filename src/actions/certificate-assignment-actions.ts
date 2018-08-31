@@ -1,7 +1,7 @@
 import getWeb3 from "../utils/getWeb3";
 const CertificatesContract = require('../../build/contracts/Certificates.json');
 import * as contract from 'truffle-contract';
-import { State } from "../state/certificate-assignment";
+import { CertificateAdderState } from "../state/certificate-assignment";
 import { ThunkAction } from "../../node_modules/redux-thunk";
 import { ChangeQuery } from "./certificate-holder-actions";
 import { sha256 } from "../../node_modules/js-sha256";
@@ -34,23 +34,10 @@ function requestSent(): RequestSent {
     }
 }
 
-export const CHANGE_ASSIGNMENT_QUERY = 'CHANGE_ASSIGNMENT_QUERY';
-export type CHANGE_ASSIGNMENT_QUERY = typeof CHANGE_ASSIGNMENT_QUERY;
-export interface ChangeAssignment {
-    type: CHANGE_ASSIGNMENT_QUERY;
-    query: CandidateQuery
-}
-export function changeQuery(query: CandidateQuery): ChangeAssignment {
-    return {
-        type: CHANGE_ASSIGNMENT_QUERY,
-        query
-    }
-}
-
-export type Actions = RequestAddition | ChangeAssignment | RequestSent;
+export type Actions = RequestAddition | RequestSent;
 
 
-export function requestAddition(candidate: Address, certificate: string): ThunkAction<void, State, undefined, Actions>  {
+export function requestAddition(candidate: Address, certificate: string): ThunkAction<void, CertificateAdderState, undefined, Actions>  {
     return function(dispatch) {
         dispatch(createRequestAddition(candidate, certificate));
 

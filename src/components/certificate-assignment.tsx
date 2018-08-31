@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { State } from '../state/certificate-assignment';
+import { CertificateAdderState } from '../state/certificate-assignment';
 import { FormControl, Input, Button, TextField, Grid } from '@material-ui/core';
 import { sha256 } from 'js-sha256';
 import { Address } from '../types/ethereum-address';
@@ -8,36 +8,47 @@ import AddressEditor from './address-editor';
 
 export interface CertificateAssignmentDispatch {
     onClick: (candidate: Address, certificate: string) => void;
-    onCandidateChange: (candidate: Address) => void;
-    onCertificateChange: (certificate: string) => void;
 }
 
-export type CertificateAdderProps = State & CertificateAssignmentDispatch;
+export type CertificateAdderProps = CertificateAdderState & CertificateAssignmentDispatch;
 
-export class CertificateAdder extends React.Component<CertificateAdderProps> {
+interface State {
+    candidate: Address | null;
+    certificate: string;
+}
+
+export class CertificateAdder extends React.Component<CertificateAdderProps, State> {
     
-    private addressChange(address: Address) {
-        this.props.onCandidateChange(address);
+    private addressChange(candidate: Address) {
+        this.setState({
+            candidate 
+        })
     }
-    private certificateChange(event: any) {
-        this.props.onCertificateChange(event.target.value);
+    private certificateChange(certificate: string) {
+        this.setState({
+            certificate 
+        })
     }
 
-    private static isValid(props: CertificateAdderProps): boolean {
-        if (props.candidate == null || props.certificate == null) {
+    private isValid(): boolean {
+        if (this.state.candidate == null || this.state.certificate == null) {
             return false;
         }
         return true;
     }
 
     private onSubmitClicked() {
-        if (CertificateAdder.isValid(this.props)) {
-            this.props.onClick(this.props.candidate!, this.props.certificate);
+        if (this.isValid()) {
+            this.props.onClick(this.state.candidate!, this.state.certificate);
         }
     }
 
     constructor(props: CertificateAdderProps) {
         super(props);
+        this.state = {
+            candidate: null,
+            certificate: ''
+        }
     }
 
     public render() {
@@ -46,26 +57,26 @@ export class CertificateAdder extends React.Component<CertificateAdderProps> {
                 <Grid item xs>
                     <FormControl>
                         <AddressEditor
-                            address={this.props.candidate}
+                            address={this.state.candidate}
                             placeholder="Candidate address"
                             onChange={(address) => address && this.addressChange(address)}
                         />
                         <TextField type="text" id="certificate"
                             placeholder="Certificate to add"
-                            value={this.props.certificate}
-                            onChange={(certificate) => this.certificateChange(certificate)}
+                            value={this.state.certificate}
+                            onChange={(certificate) => this.certificateChange(certificate.target.value)}
                             multiline={true}
                             rows={4} />
                         <Button 
                             onClick={() => this.onSubmitClicked()}
-                            disabled={!CertificateAdder.isValid(this.props)}
+                            disabled={!this.isValid()}
                         >
                             Submit
                         </Button>
                     </FormControl>
                 </Grid>
                 <Grid item xs>
-                    Hash of current assertion to be submitted: {sha256(this.props.certificate || '')}
+                    Hash of current assertion to be submitted: {sha256(this.state.certificate)}
                 </Grid>
             </Grid>
         );

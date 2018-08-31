@@ -48,13 +48,13 @@ exports[`Renders correctly in every state 1`] = `
             required={false}
             rows={4}
             type="text"
-            value="0x1234"
+            value=""
           />
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
-        disabled={true}
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -66,7 +66,7 @@ exports[`Renders correctly in every state 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="-1"
+        tabIndex="0"
         type="button"
       >
         <span
@@ -74,6 +74,9 @@ exports[`Renders correctly in every state 1`] = `
         >
           Submit
         </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
       </button>
     </div>
   </div>
@@ -81,7 +84,7 @@ exports[`Renders correctly in every state 1`] = `
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
     Hash of current assertion to be submitted: 
-    5a0737e8cbcfa24dcc118b0ab1e6d98bee17c57daa8a1686024159aae707ed6f
+    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
   </div>
 </div>
 `;
@@ -134,13 +137,13 @@ exports[`Renders correctly in every state 2`] = `
             required={false}
             rows={4}
             type="text"
-            value="0x1234"
+            value=""
           />
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
-        disabled={true}
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -152,7 +155,7 @@ exports[`Renders correctly in every state 2`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="-1"
+        tabIndex="0"
         type="button"
       >
         <span
@@ -160,6 +163,9 @@ exports[`Renders correctly in every state 2`] = `
         >
           Submit
         </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
       </button>
     </div>
   </div>
@@ -167,7 +173,7 @@ exports[`Renders correctly in every state 2`] = `
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
     Hash of current assertion to be submitted: 
-    5a0737e8cbcfa24dcc118b0ab1e6d98bee17c57daa8a1686024159aae707ed6f
+    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
   </div>
 </div>
 `;
@@ -220,13 +226,13 @@ exports[`Renders correctly in every state 3`] = `
             required={false}
             rows={4}
             type="text"
-            value="0x1234"
+            value=""
           />
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
-        disabled={true}
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -238,7 +244,7 @@ exports[`Renders correctly in every state 3`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="-1"
+        tabIndex="0"
         type="button"
       >
         <span
@@ -246,6 +252,9 @@ exports[`Renders correctly in every state 3`] = `
         >
           Submit
         </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
       </button>
     </div>
   </div>
@@ -253,7 +262,7 @@ exports[`Renders correctly in every state 3`] = `
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
     Hash of current assertion to be submitted: 
-    5a0737e8cbcfa24dcc118b0ab1e6d98bee17c57daa8a1686024159aae707ed6f
+    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
   </div>
 </div>
 `;
@@ -306,93 +315,7 @@ exports[`Renders correctly in every state 4`] = `
             required={false}
             rows={4}
             type="text"
-            value="0x1234"
-          />
-        </div>
-      </div>
-      <button
-        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
-        disabled={true}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex="-1"
-        type="button"
-      >
-        <span
-          className="MuiButton-label-116"
-        >
-          Submit
-        </span>
-      </button>
-    </div>
-  </div>
-  <div
-    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
-  >
-    Hash of current assertion to be submitted: 
-    5a0737e8cbcfa24dcc118b0ab1e6d98bee17c57daa8a1686024159aae707ed6f
-  </div>
-</div>
-`;
-
-exports[`Renders correctly with a correct address 1`] = `
-<div
-  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
->
-  <div
-    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
-  >
-    <div
-      className="MuiFormControl-root-98"
-    >
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
-        >
-          <input
-            aria-invalid={false}
-            className="MuiInput-input-110"
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Candidate address"
-            required={false}
-            type="text"
-            value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
-          />
-        </div>
-      </div>
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-multiline-108 MuiInput-underline-106"
-        >
-          <textarea
-            aria-invalid={false}
-            className="MuiInput-input-110 MuiInput-inputMultiline-112"
-            disabled={false}
-            id="certificate"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Certificate to add"
-            required={false}
-            rows={4}
-            type="text"
-            value="dummy"
+            value=""
           />
         </div>
       </div>
@@ -428,93 +351,7 @@ exports[`Renders correctly with a correct address 1`] = `
     className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
   >
     Hash of current assertion to be submitted: 
-    b5a2c96250612366ea272ffac6d9744aaf4b45aacd96aa7cfcb931ee3b558259
-  </div>
-</div>
-`;
-
-exports[`Renders correctly with an empty address 1`] = `
-<div
-  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
->
-  <div
-    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
-  >
-    <div
-      className="MuiFormControl-root-98"
-    >
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
-        >
-          <input
-            aria-invalid={false}
-            className="MuiInput-input-110"
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Candidate address"
-            required={false}
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        className="MuiFormControl-root-98"
-      >
-        <div
-          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-multiline-108 MuiInput-underline-106"
-        >
-          <textarea
-            aria-invalid={false}
-            className="MuiInput-input-110 MuiInput-inputMultiline-112"
-            disabled={false}
-            id="certificate"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Certificate to add"
-            required={false}
-            rows={4}
-            type="text"
-            value="dummy"
-          />
-        </div>
-      </div>
-      <button
-        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
-        disabled={true}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex="-1"
-        type="button"
-      >
-        <span
-          className="MuiButton-label-116"
-        >
-          Submit
-        </span>
-      </button>
-    </div>
-  </div>
-  <div
-    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
-  >
-    Hash of current assertion to be submitted: 
-    b5a2c96250612366ea272ffac6d9744aaf4b45aacd96aa7cfcb931ee3b558259
+    e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
   </div>
 </div>
 `;
