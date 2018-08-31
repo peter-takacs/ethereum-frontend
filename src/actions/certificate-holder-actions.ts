@@ -3,7 +3,7 @@ const CertificatesContract = require('../../build/contracts/Certificates.json');
 import getWeb3 from '../utils/getWeb3'
 import * as contract from 'truffle-contract';
 import { ThunkAction } from '../../node_modules/redux-thunk';
-import { State } from '../state/certificate-checker';
+import { CertificateCheckerState } from '../state/certificate-checker';
 import { CandidateQuery } from '../state/candidate-query';
 import { sha256 } from '../../node_modules/js-sha256';
 
@@ -33,22 +33,9 @@ function receiveStatus(hasCertificate: boolean): Actions {
     }
 }
 
-export const CHANGE_STATUS_QUERY = 'CHANGE_STATUS_QUERY';
-export type CHANGE_STATUS_QUERY = typeof CHANGE_STATUS_QUERY;
-export interface ChangeQuery {
-    type: CHANGE_STATUS_QUERY,
-    query: CandidateQuery
-} 
-export function changeQuery(query: CandidateQuery): ChangeQuery {
-    return {
-        type: CHANGE_STATUS_QUERY,
-        query
-    }
-}
+export type Actions = ReceiveStatus | RequestStatus; 
 
-export type Actions = ReceiveStatus | RequestStatus | ChangeQuery; 
-
-export function getStatus(query: CandidateQuery): ThunkAction<void, State, undefined, Actions> {
+export function getStatus(query: CandidateQuery): ThunkAction<void, CertificateCheckerState, undefined, Actions> {
     return function (dispatch) {
         dispatch(requestStatus(query));
 

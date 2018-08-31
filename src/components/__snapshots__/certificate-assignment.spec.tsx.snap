@@ -53,8 +53,8 @@ exports[`Renders correctly in every state 1`] = `
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
-        disabled={false}
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -66,7 +66,7 @@ exports[`Renders correctly in every state 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="0"
+        tabIndex="-1"
         type="button"
       >
         <span
@@ -74,9 +74,6 @@ exports[`Renders correctly in every state 1`] = `
         >
           Submit
         </span>
-        <span
-          className="MuiTouchRipple-root-144"
-        />
       </button>
     </div>
   </div>
@@ -142,8 +139,8 @@ exports[`Renders correctly in every state 2`] = `
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
-        disabled={false}
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -155,7 +152,7 @@ exports[`Renders correctly in every state 2`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="0"
+        tabIndex="-1"
         type="button"
       >
         <span
@@ -163,9 +160,6 @@ exports[`Renders correctly in every state 2`] = `
         >
           Submit
         </span>
-        <span
-          className="MuiTouchRipple-root-144"
-        />
       </button>
     </div>
   </div>
@@ -231,8 +225,8 @@ exports[`Renders correctly in every state 3`] = `
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
-        disabled={false}
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -244,7 +238,7 @@ exports[`Renders correctly in every state 3`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="0"
+        tabIndex="-1"
         type="button"
       >
         <span
@@ -252,9 +246,6 @@ exports[`Renders correctly in every state 3`] = `
         >
           Submit
         </span>
-        <span
-          className="MuiTouchRipple-root-144"
-        />
       </button>
     </div>
   </div>
@@ -320,8 +311,8 @@ exports[`Renders correctly in every state 4`] = `
         </div>
       </div>
       <button
-        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
-        disabled={false}
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -333,7 +324,7 @@ exports[`Renders correctly in every state 4`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="0"
+        tabIndex="-1"
         type="button"
       >
         <span
@@ -341,9 +332,6 @@ exports[`Renders correctly in every state 4`] = `
         >
           Submit
         </span>
-        <span
-          className="MuiTouchRipple-root-144"
-        />
       </button>
     </div>
   </div>

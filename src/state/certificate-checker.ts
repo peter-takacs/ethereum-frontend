@@ -6,8 +6,6 @@ export enum CertificateCheckState {
     Confirmed,
     Rejected
 }
-export interface State {
-    candidate: Address | null,
-    certificate: string,
+export interface CertificateCheckerState {
     certificateStatus: CertificateCheckState
 }

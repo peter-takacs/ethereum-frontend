@@ -3,7 +3,6 @@ const CertificatesContract = require('../../build/contracts/Certificates.json');
 import * as contract from 'truffle-contract';
 import { CertificateAdderState } from "../state/certificate-assignment";
 import { ThunkAction } from "../../node_modules/redux-thunk";
-import { ChangeQuery } from "./certificate-holder-actions";
 import { sha256 } from "../../node_modules/js-sha256";
 import { CandidateQuery } from "../state/candidate-query";
 import { Address } from '../types/ethereum-address';

@@ -15,10 +15,6 @@ test('Renders correctly in every state', () => {
     ].forEach(state => {
         const component = renderer.create(
             <CertificateChecker
-                candidate={dummyAddress(0)}
-                certificate="0x1234"
-                onCandidateChange={() => { }}
-                onCertificateChange={() => { }}
                 onClick={() => { }}
                 certificateStatus={state} />
         );

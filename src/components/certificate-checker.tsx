@@ -1,28 +1,35 @@
 import * as React from 'react';
-import { State, CertificateCheckState } from '../state/certificate-checker';
+import { CertificateCheckerState, CertificateCheckState } from '../state/certificate-checker';
 import { Input, FormControl, Button, TextField, Grid } from '@material-ui/core';
 import AddressEditor from './address-editor';
 import { Address } from '../types/ethereum-address';
 
 export interface CertificateCheckerDispatch {
     onClick: (candidate: Address, certificate: string) => void;
-    onCandidateChange: (candidate: Address) => void;
-    onCertificateChange: (certificate: string) => void;
 }
 
-export type CertificateCheckerProps = State & CertificateCheckerDispatch;
+export type CertificateCheckerProps = CertificateCheckerState & CertificateCheckerDispatch;
 
-export class CertificateChecker extends React.Component<CertificateCheckerProps> {
+interface State {
+    candidate: Address | null;
+    certificate: string;
+}
 
-    private candidateChange(address: Address) {
-        this.props.onCandidateChange(address);
+export class CertificateChecker extends React.Component<CertificateCheckerProps, State> {
+
+    private candidateChange(candidate: Address) {
+        this.setState({
+            candidate
+        })
     }
-    private certificateChange(event: any) {
-        this.props.onCertificateChange(event.target.value);
+    private certificateChange(certificate: string) {
+        this.setState({
+            certificate
+        })
     }
 
     private get isValid(): boolean {
-        if (this.props.candidate == null || this.props.certificate == null) {
+        if (this.state.candidate == null || this.state.certificate == null) {
             return false;
         }
         return true;
@@ -30,7 +37,7 @@ export class CertificateChecker extends React.Component<CertificateCheckerProps>
 
     private onSubmitClicked() {
         if (this.isValid) {
-            this.props.onClick(this.props.candidate!, this.props.certificate);
+            this.props.onClick(this.state.candidate!, this.state.certificate);
         }
     }
 
@@ -49,7 +56,10 @@ export class CertificateChecker extends React.Component<CertificateCheckerProps>
 
     constructor(props: CertificateCheckerProps) {
         super(props);
-
+        this.state = {
+            candidate: null,
+            certificate: ''
+        }
     }
 
     render() {
@@ -59,16 +69,21 @@ export class CertificateChecker extends React.Component<CertificateCheckerProps>
                     <FormControl>
                         <AddressEditor
                             placeholder="Candidate address"
-                            address={this.props.candidate}
+                            address={this.state.candidate}
                             onChange={(c) => c && this.candidateChange(c)}
                         />
                         <TextField 
                             id="certificate" 
                             placeholder="Certificate to check" 
-                            value={this.props.certificate} 
-                            onChange={(c) =>  this.certificateChange(c)} 
+                            value={this.state.certificate} 
+                            onChange={(c) =>  this.certificateChange(c.target.value)} 
                         />
-                        <Button onClick={() => this.onSubmitClicked()}>Submit</Button>
+                        <Button 
+                            onClick={() => this.onSubmitClicked()}
+                            disabled={!this.isValid}
+                        >
+                            Submit
+                        </Button>
                     </FormControl>
                 </Grid>
                 <Grid item xs>
