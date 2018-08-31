@@ -1,3 +1,5 @@
-export interface State {
-    members: string[];
+import { Address } from "../types/ethereum-address";
+
+export interface NetworkMembersState {
+    members: Address[];
 }

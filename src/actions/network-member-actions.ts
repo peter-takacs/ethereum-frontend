@@ -4,7 +4,7 @@ const CertificatesContract = require('../../build/contracts/Certificates.json');
 import getWeb3 from '../utils/getWeb3'
 import * as contract from 'truffle-contract';
 import { ThunkAction } from 'redux-thunk';
-import { State } from '../state/educator-network';
+import { NetworkMembersState } from '../state/educator-network';
 import { Address } from '../types/ethereum-address';
 import { NetworkMemberAdditionState } from '../state/network-member-addition';
 
@@ -24,9 +24,9 @@ export const RECEIVE_MEMBERS = 'RECEIVE_MEMBERS';
 export type RECEIVE_MEMBERS = typeof RECEIVE_MEMBERS;
 export interface ReceiveMembers {
     type: RECEIVE_MEMBERS,
-    members: string[]
+    members: Address[]
 }
-function receiveMembers(members: string[]): Actions {
+function receiveMembers(members: Address[]): Actions {
     return {
         type: RECEIVE_MEMBERS,
         members: members
@@ -42,7 +42,7 @@ interface RequestAddition {
 
 export type Actions = ReceiveMembers | RequestMembers | RequestAddition;
 
-export function getMembers(): ThunkAction<void, State, undefined, Actions> {
+export function getMembers(): ThunkAction<void, NetworkMembersState, undefined, Actions> {
     return function (dispatch) {
         dispatch(requestMembers());
 
@@ -57,7 +57,7 @@ export function getMembers(): ThunkAction<void, State, undefined, Actions> {
                     return instance.getMembers.call()
                 })
                 .then((result: string[]) => {
-                    dispatch(receiveMembers(result));
+                    dispatch(receiveMembers(result.map(s => new Address(s))));
                 })
             });
         });

@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { State } from '../state/educator-network';
+import { NetworkMembersState } from '../state/educator-network';
 
-export interface NetworkMembersProps extends State {}
+export interface NetworkMembersProps extends NetworkMembersState {}
 
-const NetworkMembers = ({members}: State) => (
+const NetworkMembers = ({members}: NetworkMembersState) => (
     <div>
         <header>
             Educator network members:
         </header>
         <ul>
             {members.map(member => (
-                <li key={member}>{member}</li>
+                <li key={member.toString()}>{member.toString()}</li>
             ))}
         </ul>
     </div>
