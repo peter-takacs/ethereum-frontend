@@ -48,6 +48,7 @@ contract Certificates {
             for (uint i = 0; i < candidateAssertions.length; i++) {
                 if (candidateAssertions[i].hashedAssertion == certificate) {
                     candidateAssertions[i].isRevoked = true;
+                    registry[holder] = candidateAssertions;
                     return true;
                 }
             }
