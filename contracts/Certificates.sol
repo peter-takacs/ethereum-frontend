@@ -43,7 +43,7 @@ contract Certificates {
 
     function revoke(address holder, uint256 certificate) public returns (bool) {
         address sender = msg.sender;
-        Assertion[] memory candidateAssertions = registry[holder];
+        Assertion[] storage candidateAssertions = registry[holder];
         if (educatorNetwork.isMember(sender)) {
             for (uint i = 0; i < candidateAssertions.length; i++) {
                 if (candidateAssertions[i].hashedAssertion == certificate) {
