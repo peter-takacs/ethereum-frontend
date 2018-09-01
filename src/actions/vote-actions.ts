@@ -5,7 +5,7 @@ import { Address } from "../types/ethereum-address";
 import { CandidateVotes, VoteStatus } from "../types/vote";
 import { ThunkAction } from "redux-thunk";
 
-const REQUEST_CANDIDATES = 'REQUEST_CANDIDATES';
+export const REQUEST_CANDIDATES = 'REQUEST_CANDIDATES';
 export type REQUEST_CANDIDATES = typeof REQUEST_CANDIDATES;
 
 export interface RequestCandidates {
@@ -34,7 +34,7 @@ export function requestCandidates(): ThunkAction<void, {}, undefined, Actions> {
         });
 }}
 
-const RECEIVE_CANDIDATES = 'RECEIVE_CANDIDATES';
+export const RECEIVE_CANDIDATES = 'RECEIVE_CANDIDATES';
 export type RECEIVE_CANDIDATES = typeof RECEIVE_CANDIDATES;
 
 export interface ReceiveCandidates {
@@ -49,7 +49,7 @@ export function receiveCandidates(candidates: Address[]): Actions {
     };
 }
 
-const REQUEST_VOTES = 'REQUEST_VOTES';
+export const REQUEST_VOTES = 'REQUEST_VOTES';
 export type REQUEST_VOTES = typeof REQUEST_VOTES;
 
 export interface RequestVotes {
@@ -91,7 +91,7 @@ export function requestVotes(candidate: Address): ThunkAction<void, {}, undefine
     }
 }
 
-const RECEIVE_VOTES = 'RECEIVE_VOTES';
+export const RECEIVE_VOTES = 'RECEIVE_VOTES';
 export type RECEIVE_VOTES = typeof RECEIVE_VOTES;
 
 export interface ReceiveVotes {
