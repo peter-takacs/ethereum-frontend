@@ -34,6 +34,7 @@ contract EducatorNetwork {
     constructor() public {
         members = new address[](1);
         members[0] = msg.sender;
+        candidates = new address[](0);
     }
 
     function contains(address[] haystack, address needle) private pure returns (bool) {
@@ -72,20 +73,21 @@ contract EducatorNetwork {
         return (resultAddresses, resultVoteStatuses);
     }
     
-    function requestAddition(address newMember) public {
+    function requestAddition(address newMember) public  returns (bool) {
         if (isMember(newMember)) {
-            return;
+            return false;
         }
         if (!isMember(msg.sender)) {
             revert();
+            return false;
         }
 
         if (!contains(candidates, newMember)) {
             address[] memory updatedCandidates = new address[](candidates.length + 1);
-            for (uint i = 0; i < members.length; i++) {
-                updatedCandidates[i] = members[i];
+            for (uint i = 0; i < candidates.length; i++) {
+                updatedCandidates[i] = candidates[i];
             }
-            updatedCandidates[members.length] = newMember;
+            updatedCandidates[candidates.length] = newMember;
             candidates = updatedCandidates;
         }
 
@@ -99,6 +101,9 @@ contract EducatorNetwork {
             }
             updatedMembers[members.length] = newMember;
             members = updatedMembers;
+            return true;
         }
+
+        return false;
     }
 }
