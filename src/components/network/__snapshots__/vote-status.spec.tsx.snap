@@ -13,8 +13,22 @@ exports[`Renders correctly with data 1`] = `
       <p
         className="MuiTypography-root-98 MuiTypography-body1-107"
       >
-        this.props.candidate
+        0xdf3f619804a92fdb4057192dc43dd748ea778adc
       </p>
+      <div
+        className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+      >
+        <div
+          className="MuiGrid-item-2"
+        >
+          0x27ecd0a598e76f8a2fd264d427df0a119903e8ea
+        </div>
+        <div
+          className="MuiGrid-item-2"
+        >
+          1
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -17,9 +17,9 @@ class ComponentName extends React.Component<VoteStatusProps, VoteStatusState> {
             return (
                 <Grid container>
                     <Typography>
-                        this.props.candidate
+                        {this.props.candidate.toString()}
                     </Typography>
-                    {this.props.votes.forEach((status, key) => (
+                    {Array.from(this.props.votes).map(([key, status]) => (
                         <Grid key={"v-" + key.toString()} container spacing={24}>
                             <Grid item>
                                 {key.toString()}
