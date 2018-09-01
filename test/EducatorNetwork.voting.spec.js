@@ -27,4 +27,14 @@ contract('Voting status', async(accounts) => {
         assert.equal(votes[1][1], 1);
         assert.equal(votes[1][0], 0);
     });
+
+    it('Should return accepted votes after voting', async() => {
+        await instance.requestAddition(candidateAccount, {from: initialAccount});
+
+        const votes = await instance.getVotesForCandidate.call(candidateAccount);
+        assert.equal(votes[0][1], secondaryAccount);
+        assert.equal(votes[0][0], initialAccount);
+        assert.equal(votes[1][1], 1);
+        assert.equal(votes[1][0], 1);
+    });
 })
