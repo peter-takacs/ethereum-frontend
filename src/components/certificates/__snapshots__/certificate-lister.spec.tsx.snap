@@ -1,0 +1,407 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly in every state without results 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <ul />
+  </div>
+</div>
+`;
+
+exports[`Renders correctly in every state without results 2`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <ul />
+  </div>
+</div>
+`;
+
+exports[`Renders correctly in every state without results 3`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <ul />
+  </div>
+</div>
+`;
+
+exports[`Renders correctly in every state without results 4`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <ul />
+  </div>
+</div>
+`;
+
+exports[`Renders correctly with invalid address 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <ul />
+  </div>
+</div>
+`;
+
+exports[`Renders correctly with results 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value="0xdf3f619804a92fdb4057192dc43dd748ea778adc"
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+        <span
+          className="MuiTouchRipple-root-144"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <ul>
+      <li>
+        test
+        (issued by: 
+        0xdf3f619804a92fdb4057192dc43dd748ea778adc
+        )
+      </li>
+      <li>
+        foo
+        (issued by: 
+        0x27ecd0a598e76f8a2fd264d427df0a119903e8ea
+        )
+      </li>
+    </ul>
+  </div>
+</div>
+`;

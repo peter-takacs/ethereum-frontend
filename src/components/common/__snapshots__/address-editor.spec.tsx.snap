@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It renders correctly with a correct address 1`] = `
+<div
+  className="MuiFormControl-root-1"
+>
+  <div
+    className="MuiInput-root-5 MuiInput-formControl-6 MuiInput-underline-9"
+  >
+    <input
+      aria-invalid={false}
+      className="MuiInput-input-13"
+      disabled={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      required={false}
+      type="text"
+      value="0x0000111122223333444455556666777788889999"
+    />
+  </div>
+</div>
+`;
+
+exports[`It renders correctly with an empty address 1`] = `
+<div
+  className="MuiFormControl-root-1"
+>
+  <div
+    className="MuiInput-root-5 MuiInput-formControl-6 MuiInput-underline-9"
+  >
+    <input
+      aria-invalid={false}
+      className="MuiInput-input-13"
+      disabled={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      required={false}
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { CertificateAdderState } from '../state/certificate-assignment';
+import { CertificateAdderState } from '../../state/certificate-assignment';
 import { FormControl, Input, Button, TextField, Grid } from '@material-ui/core';
 import { sha256 } from 'js-sha256';
-import { Address } from '../types/ethereum-address';
-import AddressEditor from './address-editor';
+import { Address } from '../../types/ethereum-address';
+import AddressEditor from '../common/address-editor';
 
 
 export interface CertificateAssignmentDispatch {

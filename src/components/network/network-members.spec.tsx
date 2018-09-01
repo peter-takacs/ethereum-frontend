@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import NetworkMembers from './network-members';
-import { dummyAddress } from '../utils/test/address';
+import { dummyAddress } from '../../utils/test/address';
 
 test('Renders correctly', () => {
     const component = renderer.create(

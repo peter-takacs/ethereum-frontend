@@ -1,0 +1,337 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly in every state 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            id="certificate"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Certificate to check"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`Renders correctly in every state 2`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            id="certificate"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Certificate to check"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    Loading...
+  </div>
+</div>
+`;
+
+exports[`Renders correctly in every state 3`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            id="certificate"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Certificate to check"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    The given address has the certificate
+  </div>
+</div>
+`;
+
+exports[`Renders correctly in every state 4`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-spacing-xs-24-25"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    <div
+      className="MuiFormControl-root-98"
+    >
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Candidate address"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root-98"
+      >
+        <div
+          className="MuiInput-root-102 MuiInput-formControl-103 MuiInput-underline-106"
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInput-input-110"
+            disabled={false}
+            id="certificate"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Certificate to check"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-text-117 MuiButton-flat-120 MuiButton-disabled-135"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-116"
+        >
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-true-29"
+  >
+    The given addres does not have the certificate
+  </div>
+</div>
+`;

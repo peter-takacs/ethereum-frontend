@@ -1,5 +1,5 @@
 
-import AccountDisplay from '../components/account'
+import AccountDisplay from '../components/common/account'
 import { connect } from 'react-redux';
 import { State as RootState } from '../state/root';
 import { State } from '../state/account';

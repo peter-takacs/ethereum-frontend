@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CertificateChecker, { CertificateCheckerDispatch } from '../components/certificate-checker';
+import CertificateChecker, { CertificateCheckerDispatch } from '../components/certificates/certificate-checker';
 import { getStatus, Actions } from '../actions/certificate-holder-actions';
 import { State as RootState } from '../state/root';
 import { CertificateCheckerState } from '../state/certificate-checker';

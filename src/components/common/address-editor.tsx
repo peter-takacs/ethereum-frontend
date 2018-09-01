@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { State } from '../state/address-editor';
+import { State } from '../../state/address-editor';
 import { TextField } from '@material-ui/core';
-import { Address } from '../types/ethereum-address';
+import { Address } from '../../types/ethereum-address';
 
 export interface AddressEditorDispatch {
     onChange: (address: Address | null) => void;

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { CertificateCheckerState, CertificateCheckState } from '../state/certificate-checker';
+import { CertificateCheckerState, CertificateCheckState } from '../../state/certificate-checker';
 import { Input, FormControl, Button, TextField, Grid } from '@material-ui/core';
-import AddressEditor from './address-editor';
-import { Address } from '../types/ethereum-address';
+import AddressEditor from '../common/address-editor';
+import { Address } from '../../types/ethereum-address';
 
 export interface CertificateCheckerDispatch {
     onClick: (candidate: Address, certificate: string) => void;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { State } from '../state/account';
+import { State } from '../../state/account';
 
 const AccountDisplay = ({address}: State) => {
     if (address == null) {

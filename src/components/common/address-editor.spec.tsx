@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import { Address } from '../types/ethereum-address';
+import { Address } from '../../types/ethereum-address';
 import AddressEditor from './address-editor';
 import { configure, mount, EnzymeAdapter } from 'enzyme';
-import { textChange } from '../utils/test/form-events';
+import { textChange } from '../../utils/test/form-events';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 
 const dummyAddressString = '0x0000111122223333444455556666777788889999';

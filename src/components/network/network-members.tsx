@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NetworkMembersState } from '../state/educator-network';
+import { NetworkMembersState } from '../../state/educator-network';
 
 export interface NetworkMembersProps extends NetworkMembersState {}
 

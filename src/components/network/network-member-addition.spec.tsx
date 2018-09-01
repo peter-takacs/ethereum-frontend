@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import CertificateChecker from './certificate-checker';
-import { dummyAddress } from '../utils/test/address';
-import CertificateLister from './certificate-lister';
-import { EthereumOperationState } from '../state/ethereum-operation-state';
-import { Assertion } from '../types/assertion';
+import CertificateChecker from '../certificates/certificate-checker';
+import { dummyAddress } from '../../utils/test/address';
+import CertificateLister from '../certificates/certificate-lister';
+import { EthereumOperationState } from '../../state/ethereum-operation-state';
+import { Assertion } from '../../types/assertion';
 import NetworkMemberAddition from './network-member-addition';
 
 test('Renders correctly in every state without results', () => {

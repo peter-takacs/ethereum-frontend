@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import CertificateAdder from './certificate-assignment';
-import { CertificateQueryState } from '../state/certificate-assignment';
-import { dummyAddress } from '../utils/test/address';
+import { CertificateQueryState } from '../../state/certificate-assignment';
+import { dummyAddress } from '../../utils/test/address';
 
 test('Renders correctly in every state', () => {
     [

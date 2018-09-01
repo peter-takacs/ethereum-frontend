@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import AddressEditor from './address-editor';
+import AddressEditor from '../common/address-editor';
 import { Button, Grid, FormControl } from '@material-ui/core';
-import { State } from '../state/certificate-lister';
-import { Address } from '../types/ethereum-address';
-import { Assertion } from '../types/assertion';
-import { EthereumOperationState } from '../state/ethereum-operation-state';
+import { State } from '../../state/certificate-lister';
+import { Address } from '../../types/ethereum-address';
+import { Assertion } from '../../types/assertion';
+import { EthereumOperationState } from '../../state/ethereum-operation-state';
 
 export interface CertificateListerDispatch {
     onCandidateChange: (candidate: Address) => void;

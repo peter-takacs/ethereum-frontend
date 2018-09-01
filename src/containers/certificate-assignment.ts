@@ -1,4 +1,4 @@
-import CertificateAdder, { CertificateAssignmentDispatch } from '../components/certificate-assignment';
+import CertificateAdder, { CertificateAssignmentDispatch } from '../components/certificates/certificate-assignment';
 import { requestAddition } from '../actions/certificate-assignment-actions';
 import { connect } from 'react-redux';
 import { State as RootState } from '../state/root';

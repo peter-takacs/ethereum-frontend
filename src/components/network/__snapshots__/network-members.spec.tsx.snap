@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly 1`] = `
+<div>
+  <header>
+    Educator network members:
+  </header>
+  <ul>
+    <li>
+      0xdf3f619804a92fdb4057192dc43dd748ea778adc
+    </li>
+    <li>
+      0x27ecd0a598e76f8a2fd264d427df0a119903e8ea
+    </li>
+  </ul>
+</div>
+`;

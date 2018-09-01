@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CertificateLister, { CertificateListerProps, CertificateListerDispatch} from '../components/certificate-lister';
+import CertificateLister, { CertificateListerProps, CertificateListerDispatch} from '../components/certificates/certificate-lister';
 import { State as CertificateListerState } from '../state/certificate-lister';
 import { connect } from 'react-redux';
 import { State as RootState } from '../state/root';
