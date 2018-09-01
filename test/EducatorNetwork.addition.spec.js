@@ -1,20 +1,9 @@
 const EducatorNetwork = artifacts.require('EducatorNetwork');
 const catchRevert = require("./exceptions.js").catchRevert;
 
-contract('Test initial state', async (accounts) => {
-
-    // NOTE: contract state is NOT reset within the same contract()
-    // block. `it` sections are executed in the order they appear
-    // in the source. There are dependencies between the `it` sections,
-    // keep that in mind when reordering or parallel testing.
+contract('Addition of new members', async(accounts) => {
 
     let initialAccount = accounts[0];
-
-    it('Should have one initial member', async () => {
-        let instance = await EducatorNetwork.deployed();
-        let members = await instance.getMembers();
-        assert.equal(1, members.length);
-    });
 
     it('Should add a new member if requested', async() => {
         let additionalAccount = accounts[1];
@@ -70,4 +59,4 @@ contract('Test initial state', async (accounts) => {
         assert.notInclude(members, accounts[4]);
         assert.notInclude(candidates, accounts[4]);
     })
-})
+});
