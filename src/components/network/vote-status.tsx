@@ -3,7 +3,7 @@ import { CandidateVotes } from '../../types/vote';
 import { Grid, Typography } from '@material-ui/core';
 import CandidateStatus from './candidate-status';
 
-interface VoteStatusProps {
+export interface VoteStatusProps {
     candidateStatuses: CandidateVotes[];
 };
 
