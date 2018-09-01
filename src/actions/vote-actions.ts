@@ -25,10 +25,13 @@ export function requestCandidates(): ThunkAction<void, {}, undefined, Actions> {
 
                 return web3.eth.getAccounts(() => {
                     educatorNetwork.deployed().then((instance: any) => {
-                        return instance.requestCandidates.call()
+                        return instance.getCandidates.call()
                     })
                     .then((response: any[]) => {
-                       dispatch(receiveCandidates(response.map(r => new Address(r)))) 
+                       dispatch(receiveCandidates(response.map(r => new Address(r))));
+                        response.forEach(r => {
+                            dispatch(requestVotes(new Address(r)))
+                        })
                     })
             });
         });
@@ -78,7 +81,7 @@ export function requestVotes(candidate: Address): ThunkAction<void, {}, undefine
                     for (let i = 0; i < response[0].length; i++) {
                         votes.set(
                             new Address(response[0][i]),
-                            response[1][i]
+                            response[1][i].toNumber()
                         );
                     }
                     dispatch(receiveVotes({

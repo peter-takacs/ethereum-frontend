@@ -4,6 +4,7 @@ import certificateChecker from './certificate-checker';
 import certificateAssignment from './certificate-assignment';
 import certificateLister from './certificate-lister';
 import networkMemberAddition from './network-member-additions';
+import votes from './votes';
 import account from './account';
 
 export const rootReducer = combineReducers({
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
     educatorNetwork,
     certificateChecker,
     certificateLister,
-    networkMemberAddition
+    networkMemberAddition,
+    votes
 });
