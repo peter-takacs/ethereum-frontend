@@ -1,5 +1,5 @@
-import NetworkMembers from '../components/network/network-members';
-import { State as RootState } from '../state/root';
+import NetworkMembers from '../../components/network/network-members';
+import { State as RootState } from '../../state/root';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state: RootState) => {

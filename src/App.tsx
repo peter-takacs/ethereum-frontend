@@ -4,12 +4,12 @@ import './css/oswald.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
-import NetworkMembers from './containers/network-members';
-import CertificateChecker from './containers/certificate-checker';
-import CertificateAdder from './containers/certificate-assignment';
-import AccountDisplay from './containers/account';
-import CertificateLister from './containers/certificate-lister';
-import NetworkMemberAddition from './containers/network-member-addition';
+import NetworkMembers from './containers/network/network-members';
+import CertificateChecker from './containers/certificates/certificate-checker';
+import CertificateAdder from './containers/certificates/certificate-assignment';
+import AccountDisplay from './containers/common/account';
+import CertificateLister from './containers/certificates/certificate-lister';
+import NetworkMemberAddition from './containers/network/network-member-addition';
 
 import { Link, Route } from 'react-router-dom';
 
