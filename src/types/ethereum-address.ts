@@ -27,7 +27,10 @@ export class Address {
         return this.address;
     }
 
-    public equals(other: Address) {
+    public equals(other: Address | null) {
+        if (other == null) {
+            return false;
+        }
         return this.address === other.address;
     }
 }
