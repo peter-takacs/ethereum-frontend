@@ -6,18 +6,22 @@ import { AccountState } from '../../state/account';
 import VotingButtons from './voting-buttons';
 
 
-interface OwnVoteStatusProps {
-    candidate: Address | null;
+export interface OwnProps {
     votes: Map<Address, VoteStatus>
-    onAccept: (candidate: Address) => void;
-    onReject: (candidate: Address) => void;
+    candidate: Address | null;
 };
 
-type VoteStatusProps = OwnVoteStatusProps & AccountState;
+export interface CandidateStatusState {
+}
 
-interface VoteStatusState {};
+export interface CandidateStatusDispatch {
+    onAccept: (candidate: Address) => void;
+    onReject: (candidate: Address) => void;
+}
 
-class CandidateStatus extends React.Component<VoteStatusProps, VoteStatusState> {
+export type CandidateStatusProps = AccountState & CandidateStatusState & OwnProps;
+
+class CandidateStatus extends React.Component<CandidateStatusProps & CandidateStatusDispatch> {
     public render(): JSX.Element {
         if (this.props.candidate != null)
         {

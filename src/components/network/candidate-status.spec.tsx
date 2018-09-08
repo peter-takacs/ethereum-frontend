@@ -9,6 +9,8 @@ import { Address } from '../../types/ethereum-address';
 test('Renders correctly with no data', () => {
     const component = renderer.create(
             <CandidateStatus
+                onAccept={() => {}}
+                onReject={() => {}}
                 address={null}
                 candidate={null}
                 votes={new Map<Address, VoteStatusEnum>()} 
@@ -23,6 +25,8 @@ test('Renders correctly with data', () => {
     votes.set(dummyAddress(1), VoteStatusEnum.Accept);
     const component = renderer.create(
         <CandidateStatus
+            onAccept={() => {}}
+            onReject={() => {}}
             address={null}
             candidate={dummyAddress(0)}
             votes={votes}
@@ -38,6 +42,8 @@ test('Renders correctly with an address', () => {
     votes.set(dummyAddress(2), VoteStatusEnum.Pending);
     const component = renderer.create(
         <CandidateStatus
+            onAccept={() => {}}
+            onReject={() => {}}
             address={dummyAddress(2)}
             candidate={dummyAddress(0)}
             votes={votes}
