@@ -1,5 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import CandidateStatus from '../../containers/network/candidate-status';
+jest.doMock('../../containers/network/candidate-status');
 import { dummyAddress } from '../../utils/test/address';
 import VoteStatus from './vote-status';
 import { VoteStatus as VoteStatusEnum } from '../../types/vote' ;
@@ -38,7 +40,7 @@ test('Renders correctly with data', () => {
 test('Renders correctly with an account', () => {
     const votes = new Map<Address, VoteStatusEnum>();
     votes.set(dummyAddress(1), VoteStatusEnum.Accept);
-    votes.set(dummyAddress(2), VoteStatusEnum.Pending);
+    votes.set(dummyAddress(2), VoteStatusEnum.Pending)
     const component = renderer.create(
         <VoteStatus
             address={dummyAddress(2)}
