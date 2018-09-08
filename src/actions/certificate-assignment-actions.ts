@@ -46,23 +46,24 @@ export function requestAddition(candidate: Address, certificate: string): ThunkA
                 const certificates = contract(CertificatesContract);
                 certificates.setProvider(web3.currentProvider);
                 
-                web3.personal.unlockAccount(currentAccount);
+                web3.personal.unlockAccount(currentAccount, () => {
+                    return web3.eth.getAccounts((_: any, accounts: any) => {
+                        certificates.deployed().then((instance: any) => {
+                            const hashedCertificate = `0x${sha256(certificate || '')}`;
 
-                return web3.eth.getAccounts((_: any, accounts: any) => {
-                    certificates.deployed().then((instance: any) => {
-                        const hashedCertificate = `0x${sha256(certificate || '')}`;
-                        
-                        instance.assign(
-                            candidate.toString(), 
-                            web3.toBigNumber(hashedCertificate), 
-                            {from: currentAccount, gas: 5000000}
-                        );
+                            instance.assign(
+                                candidate.toString(),
+                                web3.toBigNumber(hashedCertificate),
+                                { from: currentAccount, gas: 5000000 }
+                            );
+                        })
+                        .then(() => {
+                            dispatch(requestSent());
+                        });
                     })
-                    .then(() => {
-                        dispatch(requestSent());
-                    });
-                })
-            }
+                });
+
+           }
         )
     }
 }
