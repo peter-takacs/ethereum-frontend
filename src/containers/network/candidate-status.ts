@@ -9,7 +9,7 @@ import CandidateStatus, { CandidateStatusProps, CandidateStatusDispatch, OwnProp
 
 const mapStateToProps = (state: RootState, ownProps: OwnProps): CandidateStatusProps => {
     return {
-        address: state.account.address,
+        account: state.account.account,
         ...ownProps
     };
 }

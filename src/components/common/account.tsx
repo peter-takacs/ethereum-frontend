@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AccountState } from '../../state/account';
 
-const AccountDisplay = ({address}: AccountState) => {
-    if (address == null) {
+const AccountDisplay = ({account}: AccountState) => {
+    if (account == null) {
         return (
             <div>
                 Current ETH account is unavailable.
@@ -12,7 +12,7 @@ const AccountDisplay = ({address}: AccountState) => {
     }
     return (
         <div>
-            Current account is: { address.toString() }
+            Current account is: { account.address.toString() }
         </div>
     )
 }

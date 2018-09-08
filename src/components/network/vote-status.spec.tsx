@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import CandidateStatus from '../../containers/network/candidate-status';
 jest.doMock('../../containers/network/candidate-status');
-import { dummyAddress } from '../../utils/test/address';
+import { dummyAddress, dummyAccount } from '../../utils/test/address';
 import VoteStatus from './vote-status';
 import { VoteStatus as VoteStatusEnum } from '../../types/vote' ;
 import { Address } from '../../types/ethereum-address';
@@ -11,7 +11,7 @@ test('Renders correctly with no data', () => {
     const component = renderer.create(
             <VoteStatus
                 candidateStatuses={[]}
-                address={null}
+                account={null}
             />
         );
         const tree = component.toJSON();
@@ -23,7 +23,7 @@ test('Renders correctly with data', () => {
     votes.set(dummyAddress(1), VoteStatusEnum.Accept);
     const component = renderer.create(
         <VoteStatus
-            address={null}
+            account={null}
             candidateStatuses={[
                 {
                     candidate: dummyAddress(0),
@@ -43,7 +43,7 @@ test('Renders correctly with an account', () => {
     votes.set(dummyAddress(2), VoteStatusEnum.Pending)
     const component = renderer.create(
         <VoteStatus
-            address={dummyAddress(2)}
+            account={dummyAccount(2)}
             candidateStatuses={[
                 {
                     candidate: dummyAddress(0),

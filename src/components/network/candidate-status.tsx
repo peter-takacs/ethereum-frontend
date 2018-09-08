@@ -57,8 +57,8 @@ class CandidateStatus extends React.Component<CandidateStatusProps & CandidateSt
                                     {this.translateStatus(status)}
                                 </TableCell>
                                 <TableCell>
-                                    {this.props.address && 
-                                    this.props.address.equals(key) &&
+                                    {this.props.account && 
+                                    this.props.account.address.equals(key) &&
                                     status === VoteStatus.Pending   
                                         ? (
                                             <VotingButtons

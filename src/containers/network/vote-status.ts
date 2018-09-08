@@ -9,7 +9,7 @@ import { NetworkMemberAdditionState } from '../../state/network-member-addition'
 const mapStateToProps = (state: RootState): VoteStatusProps => {
     return {
         candidateStatuses: Array.from(state.votes.votes.values()),
-        address: state.account.address,
+        account: state.account.account
     };
 }
 

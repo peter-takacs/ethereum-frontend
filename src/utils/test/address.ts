@@ -1,6 +1,13 @@
 import { sha256 } from "js-sha256";
 import { Address } from "../../types/ethereum-address";
+import { Role } from "../../state/account";
 
+export function dummyAccount(seed: number, role: Role = Role.Reader) {
+    return {
+        address: dummyAddress(seed),
+        role
+    }
+}
 
 export function dummyAddress(seed: number) {
     let result = '0x';

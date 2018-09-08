@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import { dummyAddress } from '../../utils/test/address';
+import { dummyAddress, dummyAccount } from '../../utils/test/address';
 import CandidateStatus from './candidate-status';
 import { VoteStatus as VoteStatusEnum } from '../../types/vote' ;
 import { Address } from '../../types/ethereum-address';
@@ -11,7 +11,7 @@ test('Renders correctly with no data', () => {
             <CandidateStatus
                 onAccept={() => {}}
                 onReject={() => {}}
-                address={null}
+                account={null}
                 candidate={null}
                 votes={new Map<Address, VoteStatusEnum>()} 
             />
@@ -27,7 +27,7 @@ test('Renders correctly with data', () => {
         <CandidateStatus
             onAccept={() => {}}
             onReject={() => {}}
-            address={null}
+            account={null}
             candidate={dummyAddress(0)}
             votes={votes}
         />
@@ -44,7 +44,7 @@ test('Renders correctly with an address', () => {
         <CandidateStatus
             onAccept={() => {}}
             onReject={() => {}}
-            address={dummyAddress(2)}
+            account={dummyAccount(2)}
             candidate={dummyAddress(0)}
             votes={votes}
         />

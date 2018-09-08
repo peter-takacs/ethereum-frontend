@@ -3,7 +3,7 @@
 exports[`Renders with correct account 1`] = `
 <div>
   Current account is: 
-  0x1234567890abcdef01231234567890abcdef0123
+  0xdf3f619804a92fdb4057192dc43dd748ea778adc
 </div>
 `;
 

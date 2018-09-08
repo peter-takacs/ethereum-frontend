@@ -6,7 +6,7 @@ import { AccountState } from '../../state/account';
 
 const mapStateToProps = (state: RootState): AccountState => {
     return {
-        address: state.account.address
+        account: state.account.account
     }
 }
 export default connect(mapStateToProps)(AccountDisplay);
