@@ -5,7 +5,7 @@ const account = (state: AccountState = {account: null}, action: Actions): Accoun
     switch (action.type) {
         case SET_ACCOUNT:
             return {
-                account: state.account
+                account: action.account
             }
         default:
             return state;

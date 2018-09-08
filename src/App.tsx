@@ -11,11 +11,11 @@ import AccountDisplay from './containers/common/account';
 import CertificateLister from './containers/certificates/certificate-lister';
 import NetworkMemberAddition from './containers/network/network-member-addition';
 import VoteStatus from './containers/network/vote-status';
-
 import { Link, Route } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar, Typography, Drawer, withStyles, createStyles, Theme, WithStyles, List, ListItem, ListItemText } from '@material-ui/core';
+import Navigator from './containers/common/navigator';
 
 const drawerWidth = 240;
 const styles = (theme: Theme) => createStyles({
@@ -45,15 +45,6 @@ const styles = (theme: Theme) => createStyles({
   toolbar: theme.mixins.toolbar,
 });
 
-const links = [
-  {path: 'members', title: 'Members'},
-  {path: 'check', title: 'Check certificate'},
-  {path: 'assign', title: 'Assign certificate'},
-  {path: 'lister', title: 'List certificates'},
-  {path: 'network-addition', title: 'Add members'},
-  {path: 'votes', title: 'Pending votes'}
-]
-
 const App = (props: WithStyles<typeof styles>) => {
   const classes = props.classes;
   return (
@@ -70,13 +61,7 @@ const App = (props: WithStyles<typeof styles>) => {
         paper: classes.drawerPaper
       }}>
         <div className={classes.toolbar} />
-        <List>
-          {links.map(link => (
-            <ListItem key={link.path}>
-              <Link to={link.path} >{link.title} </Link>
-            </ListItem>
-          ))}
-        </List>
+        <Navigator />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
