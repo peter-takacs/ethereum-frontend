@@ -1,0 +1,1 @@
+npx webpack-serve --config .\config\webpack.config.dev.js --log-time
