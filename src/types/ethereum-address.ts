@@ -26,4 +26,11 @@ export class Address {
     public toString() {
         return this.address;
     }
+
+    public equals(other: Address | null) {
+        if (other == null) {
+            return false;
+        }
+        return this.address === other.address;
+    }
 }

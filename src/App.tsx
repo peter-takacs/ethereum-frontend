@@ -10,6 +10,7 @@ import CertificateAdder from './containers/certificates/certificate-assignment';
 import AccountDisplay from './containers/common/account';
 import CertificateLister from './containers/certificates/certificate-lister';
 import NetworkMemberAddition from './containers/network/network-member-addition';
+import VoteStatus from './containers/network/vote-status';
 
 import { Link, Route } from 'react-router-dom';
 
@@ -49,7 +50,8 @@ const links = [
   {path: 'check', title: 'Check certificate'},
   {path: 'assign', title: 'Assign certificate'},
   {path: 'lister', title: 'List certificates'},
-  {path: 'network-addition', title: 'Add members'}
+  {path: 'network-addition', title: 'Add members'},
+  {path: 'votes', title: 'Pending votes'}
 ]
 
 const App = (props: WithStyles<typeof styles>) => {
@@ -83,6 +85,7 @@ const App = (props: WithStyles<typeof styles>) => {
         <Route path="/assign" component={CertificateAdder} />
         <Route path="/lister" component={CertificateLister} />
         <Route path="/network-addition" component={NetworkMemberAddition} />
+        <Route path="/votes" component={VoteStatus} />
       </main>
     </div>
   );

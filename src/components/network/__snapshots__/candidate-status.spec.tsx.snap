@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly with an address 1`] = `
+<table
+  className="MuiTable-root-1"
+>
+  <thead
+    className="MuiTableHead-root-2"
+  >
+    <tr
+      className="MuiTableRow-root-3 MuiTableRow-head-6"
+    >
+      <th
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-head-9"
+        scope="col"
+      >
+        Voter
+      </th>
+      <th
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-head-9"
+        scope="col"
+      >
+        Status
+      </th>
+      <th
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-head-9"
+        scope="col"
+      >
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="MuiTableBody-root-16"
+  >
+    <tr
+      className="MuiTableRow-root-3"
+    >
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        0x27ecd0a598e76f8a2fd264d427df0a119903e8ea
+      </td>
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        <p
+          className="MuiTypography-root-17 MuiTypography-body1-26"
+        >
+          Accepted
+        </p>
+      </td>
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        <div
+          className="MuiGrid-item-43"
+        />
+      </td>
+    </tr>
+    <tr
+      className="MuiTableRow-root-3"
+    >
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        0xbb72b4e4eb29dc59328668f32e0511e3ac0e5ce4
+      </td>
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        <p
+          className="MuiTypography-root-17 MuiTypography-body1-26"
+        >
+          Pending
+        </p>
+      </td>
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        <div
+          className="MuiGrid-container-42 MuiGrid-item-43"
+        >
+          <button
+            className="MuiButtonBase-root-165 MuiButton-root-139 MuiButton-text-141 MuiButton-flat-144"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-140"
+            >
+              Accept
+            </span>
+            <span
+              className="MuiTouchRipple-root-168"
+            />
+          </button>
+          <button
+            className="MuiButtonBase-root-165 MuiButton-root-139 MuiButton-text-141 MuiButton-flat-144"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="0"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-140"
+            >
+              Reject
+            </span>
+            <span
+              className="MuiTouchRipple-root-168"
+            />
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Renders correctly with data 1`] = `
+<table
+  className="MuiTable-root-1"
+>
+  <thead
+    className="MuiTableHead-root-2"
+  >
+    <tr
+      className="MuiTableRow-root-3 MuiTableRow-head-6"
+    >
+      <th
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-head-9"
+        scope="col"
+      >
+        Voter
+      </th>
+      <th
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-head-9"
+        scope="col"
+      >
+        Status
+      </th>
+      <th
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-head-9"
+        scope="col"
+      >
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="MuiTableBody-root-16"
+  >
+    <tr
+      className="MuiTableRow-root-3"
+    >
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        0x27ecd0a598e76f8a2fd264d427df0a119903e8ea
+      </td>
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        <p
+          className="MuiTypography-root-17 MuiTypography-body1-26"
+        >
+          Accepted
+        </p>
+      </td>
+      <td
+        aria-sort={null}
+        className="MuiTableCell-root-8 MuiTableCell-body-10"
+      >
+        <div
+          className="MuiGrid-item-43"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Renders correctly with no data 1`] = `<div />`;

@@ -1,6 +1,4 @@
-import { connect } from 'react-redux';
 const EducatorNetworkContract = require('../../build/contracts/EducatorNetwork.json');
-const CertificatesContract = require('../../build/contracts/Certificates.json');
 import getWeb3 from '../utils/getWeb3'
 import * as contract from 'truffle-contract';
 import { ThunkAction } from 'redux-thunk';
@@ -40,7 +38,16 @@ interface RequestAddition {
     member: Address;
 }
 
-export type Actions = ReceiveMembers | RequestMembers | RequestAddition;
+type AcceptAddition = RequestAddition;
+
+const REJECT_ADDITON = 'REJECT_ADDITION';
+export type REJECT_ADDITION = typeof REJECT_ADDITON;
+interface RejectAddition {
+    type: REJECT_ADDITION;
+    member: Address;
+}
+
+export type Actions = ReceiveMembers | RequestMembers | RequestAddition | AcceptAddition | RejectAddition;
 
 export function getMembers(): ThunkAction<void, NetworkMembersState, undefined, Actions> {
     return function (dispatch) {
@@ -64,23 +71,34 @@ export function getMembers(): ThunkAction<void, NetworkMembersState, undefined, 
     }
 }
 
+export function acceptAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
+    return requestAddition(member);
+}
+
+export function rejectAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
+    return function(dispatch) {
+        // TODO implement
+        dispatch(getMembers() as any);
+    }
+}
+
 export function requestAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
     return function (dispatch) {
         return getWeb3.then(({web3}: any) => {
             const currentAccount = web3.eth.accounts[0];
-            web3.personal.unlockAccount(currentAccount);
+            web3.personal.unlockAccount(currentAccount, () => {
+                const educatorNetwork = contract(EducatorNetworkContract);
+                educatorNetwork.setProvider(web3.currentProvider);
 
-            const educatorNetwork = contract(EducatorNetworkContract);
-            educatorNetwork.setProvider(web3.currentProvider);
-
-            return web3.eth.getAccounts((_: any, ) => {
-                educatorNetwork.deployed().then((instance: any) => {
-                    return instance.requestAddition(member.toString(), {from: currentAccount, gas: 500000})
+                return web3.eth.getAccounts((_: any, ) => {
+                    educatorNetwork.deployed().then((instance: any) => {
+                        return instance.requestAddition(member.toString(), { from: currentAccount, gas: 500000 })
+                    })
+                    .then(() => {
+                        dispatch(getMembers() as any); //TODO
+                    })
                 })
-                .then(() => {
-                    dispatch(getMembers() as any); //TODO
-                })
-            })
-        })
+            });
+       })
     }
 }

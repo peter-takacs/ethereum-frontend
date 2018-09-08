@@ -1,4 +1,5 @@
 import { Address } from "./ethereum-address";
+import { dummyAddress } from "../utils/test/address";
 
 describe('Address validation', () => {
     it('Should not allow empty addresses', () => {
@@ -20,5 +21,10 @@ describe('Address validation', () => {
 
     it('Should accept correct addresses', () => {
         expect(Address.isValid('0x0000111122223333444455556666777788889999')).toBe(true);
+    })
+
+    it('Should work with equality', () => {
+        expect(dummyAddress(0).equals(dummyAddress(0))).toBe(true);
+        expect(dummyAddress(1).equals(dummyAddress(0))).toBe(false);
     })
 });
