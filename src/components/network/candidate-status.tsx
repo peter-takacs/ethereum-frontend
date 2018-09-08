@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { Address } from '../../types/ethereum-address';
 import { VoteStatus } from '../../types/vote';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
+import { AccountState } from '../../state/account';
 
-interface VoteStatusProps {
+
+interface OwnVoteStatusProps {
     candidate: Address | null;
     votes: Map<Address, VoteStatus>
 };
 
+type VoteStatusProps = OwnVoteStatusProps & AccountState;
+
 interface VoteStatusState {};
 
-class ComponentName extends React.Component<VoteStatusProps, VoteStatusState> {
+class CandidateStatus extends React.Component<VoteStatusProps, VoteStatusState> {
     public render(): JSX.Element {
         if (this.props.candidate != null)
         {
@@ -27,6 +31,18 @@ class ComponentName extends React.Component<VoteStatusProps, VoteStatusState> {
                             <Grid item>
                                 {status}
                             </Grid>
+                            {this.props.address && this.props.address.equals(key) 
+                                ? (
+                                    <Grid item container>
+                                        <Button>
+                                            Accept
+                                        </Button>
+                                        <Button>
+                                            Reject
+                                        </Button>
+                                    </Grid>
+                                )
+                                : (<Grid item/>)}
                         </Grid>
                     ))}
                 </Grid>
@@ -36,4 +52,4 @@ class ComponentName extends React.Component<VoteStatusProps, VoteStatusState> {
     }
 }
 
-export default ComponentName;
+export default CandidateStatus;

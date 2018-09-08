@@ -1,5 +1,5 @@
 import { ThunkAction } from "redux-thunk";
-import { State } from '../state/account';
+import { AccountState } from '../state/account';
 import getWeb3 from "../utils/getWeb3";
 import { getMembers } from "./network-member-actions";
 import { Address } from '../types/ethereum-address';
@@ -27,11 +27,11 @@ export function setAccount(address: Address) : Actions {
 
 export type Actions = RequestAccount | SetAccount;
 
-export function requestAccount() : ThunkAction<void, State, undefined, Actions> {
+export function requestAccount() : ThunkAction<void, AccountState, undefined, Actions> {
     return function(dispatch) {
         return getWeb3.then(
             ({web3}: any) => {
-                const currentAccount = web3.eth.accounts[0];
+                const currentAccount: Address = new Address(web3.eth.accounts[0]);
                 dispatch(setAccount(currentAccount));
                 dispatch(getMembers() as any);
             }

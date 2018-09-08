@@ -4,7 +4,8 @@ import VoteStatus, { VoteStatusProps } from '../../components/network/vote-statu
 
 const mapStateToProps = (state: RootState): VoteStatusProps => {
     return {
-        candidateStatuses: Array.from(state.votes.votes.values())
+        candidateStatuses: Array.from(state.votes.votes.values()),
+        address: state.account.address
     };
 }
 

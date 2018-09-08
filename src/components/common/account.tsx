@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { State } from '../../state/account';
+import { AccountState } from '../../state/account';
 
-const AccountDisplay = ({address}: State) => {
+const AccountDisplay = ({address}: AccountState) => {
     if (address == null) {
         return (
             <div>

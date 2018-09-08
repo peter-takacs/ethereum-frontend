@@ -9,6 +9,7 @@ test('Renders correctly with no data', () => {
     const component = renderer.create(
             <VoteStatus
                 candidateStatuses={[]}
+                address={null}
             />
         );
         const tree = component.toJSON();
@@ -20,6 +21,27 @@ test('Renders correctly with data', () => {
     votes.set(dummyAddress(1), VoteStatusEnum.Accept);
     const component = renderer.create(
         <VoteStatus
+            address={null}
+            candidateStatuses={[
+                {
+                    candidate: dummyAddress(0),
+                    votes
+                }
+            ]}
+        />
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+})
+
+
+test('Renders correctly with an account', () => {
+    const votes = new Map<Address, VoteStatusEnum>();
+    votes.set(dummyAddress(1), VoteStatusEnum.Accept);
+    votes.set(dummyAddress(2), VoteStatusEnum.Pending);
+    const component = renderer.create(
+        <VoteStatus
+            address={dummyAddress(2)}
             candidateStatuses={[
                 {
                     candidate: dummyAddress(0),
