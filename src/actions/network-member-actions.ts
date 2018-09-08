@@ -86,19 +86,19 @@ export function requestAddition(member: Address) : ThunkAction<void, NetworkMemb
     return function (dispatch) {
         return getWeb3.then(({web3}: any) => {
             const currentAccount = web3.eth.accounts[0];
-            web3.personal.unlockAccount(currentAccount);
+            web3.personal.unlockAccount(currentAccount, () => {
+                const educatorNetwork = contract(EducatorNetworkContract);
+                educatorNetwork.setProvider(web3.currentProvider);
 
-            const educatorNetwork = contract(EducatorNetworkContract);
-            educatorNetwork.setProvider(web3.currentProvider);
-
-            return web3.eth.getAccounts((_: any, ) => {
-                educatorNetwork.deployed().then((instance: any) => {
-                    return instance.requestAddition(member.toString(), {from: currentAccount, gas: 500000})
+                return web3.eth.getAccounts((_: any, ) => {
+                    educatorNetwork.deployed().then((instance: any) => {
+                        return instance.requestAddition(member.toString(), { from: currentAccount, gas: 500000 })
+                    })
+                    .then(() => {
+                        dispatch(getMembers() as any); //TODO
+                    })
                 })
-                .then(() => {
-                    dispatch(getMembers() as any); //TODO
-                })
-            })
-        })
+            });
+       })
     }
 }

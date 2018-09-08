@@ -25,6 +25,7 @@ class CandidateStatus extends React.Component<CandidateStatusProps & CandidateSt
     public render(): JSX.Element {
         if (this.props.candidate != null)
         {
+            const candidateToVote = this.props.candidate;
             return (
                 <Grid container>
                     <Typography>
@@ -41,7 +42,7 @@ class CandidateStatus extends React.Component<CandidateStatusProps & CandidateSt
                             {this.props.address && this.props.address.equals(key) 
                                 ? (
                                     <VotingButtons 
-                                        candidate={key}
+                                        candidate={candidateToVote}
                                         onAccept={this.props.onAccept}
                                         onReject={this.props.onReject}
                                     />)
