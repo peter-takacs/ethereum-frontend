@@ -38,7 +38,16 @@ interface RequestAddition {
     member: Address;
 }
 
-export type Actions = ReceiveMembers | RequestMembers | RequestAddition;
+type AcceptAddition = RequestAddition;
+
+const REJECT_ADDITON = 'REJECT_ADDITION';
+export type REJECT_ADDITION = typeof REJECT_ADDITON;
+interface RejectAddition {
+    type: REJECT_ADDITION;
+    member: Address;
+}
+
+export type Actions = ReceiveMembers | RequestMembers | RequestAddition | AcceptAddition | RejectAddition;
 
 export function getMembers(): ThunkAction<void, NetworkMembersState, undefined, Actions> {
     return function (dispatch) {
@@ -59,6 +68,17 @@ export function getMembers(): ThunkAction<void, NetworkMembersState, undefined, 
                 })
             });
         });
+    }
+}
+
+export function acceptAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
+    return requestAddition(member);
+}
+
+export function rejectAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
+    return function(dispatch) {
+        // TODO implement
+        dispatch(getMembers() as any);
     }
 }
 

@@ -3,14 +3,21 @@ import { CandidateVotes } from '../../types/vote';
 import { Grid, Typography } from '@material-ui/core';
 import CandidateStatus from './candidate-status';
 import { AccountState } from '../../state/account';
+import { Address } from '../../types/ethereum-address';
 
-interface OwnVoteStatusProps {
+interface OwnVoteStatusState {
     candidateStatuses: CandidateVotes[];
 };
 
-export type VoteStatusProps = OwnVoteStatusProps & AccountState;
+export type VoteStatusState = OwnVoteStatusState & AccountState;
 
-interface VoteStatusState {};
+export interface VoteStatusDispatch {
+    onAccept: (candidate: Address) => void;
+    onReject: (candidate: Address) => void;
+}
+
+export type VoteStatusProps = VoteStatusState & VoteStatusDispatch;
+
 
 class VoteStatus extends React.Component<VoteStatusProps, VoteStatusState> {
     public render(): JSX.Element {
@@ -33,6 +40,8 @@ class VoteStatus extends React.Component<VoteStatusProps, VoteStatusState> {
                             address={this.props.address}
                             candidate={candidate.candidate} 
                             votes={candidate.votes}
+                            onAccept={this.props.onAccept}
+                            onReject={this.props.onReject}
                         />
                     </Grid>
                 ))}
