@@ -8,6 +8,7 @@ import { CandidateQuery } from "../state/candidate-query";
 import { Address } from '../types/ethereum-address';
 import { Assertion } from "../types/assertion";
 import { CertificateProps } from "../components/certificates/certificate";
+import { getContractEnvironment } from "../utils/contract-api";
 
 export const REQUEST_ADDITION = 'REQUEST_ADDITION';
 export type REQUEST_ADDITION = typeof REQUEST_ADDITION;
@@ -61,27 +62,15 @@ export function requestRevocation(
         assertion: Assertion
     ): ThunkAction<void, CertificateProps, undefined, Actions> {
 
-    return function(dispatch) {
-        return getWeb3.then(({web3}: any) => {
-            const currentAccount = web3.eth.accounts[0];
-            const certificates = contract(CertificatesContract);
-            certificates.setProvider(web3.currentProvider);
-
-            web3.personal.unlockAccount(currentAccount, () => {
-                return web3.eth.getAccounts((_: any, accounts: any) => {
-                    certificates.deployed().then((instance: any) => {
-                        const formattedAssertion = `0x${assertion.certificate.toString()}`;
-                        instance.revoke(
-                            holder.toString(),
-                            web3.toBigNumber(formattedAssertion),
-                            {from: currentAccount, gas: 5000000}
-                        )
-                    }).then(() => {
-                        dispatch(certificateRevoked())
-                    })
-                })
-            })
-        })
+    return async function (dispatch) {
+        const { certificates, web3, currentAccount } = await getContractEnvironment();
+        await web3.eth.personal.unlockAccount(currentAccount.toString());
+        const formattedAssertion = `0x${assertion.certificate.toString()}`;
+        await certificates.revoke(
+            holder.toString(),
+            web3.toBigNumber(formattedAssertion),
+            { from: currentAccount.toString(), gas: 5000000 });
+        dispatch(certificateRevoked());
     }
 }
 
@@ -90,35 +79,16 @@ export function requestAddition(
         certificate: string
     ): ThunkAction<void, CertificateAdderState, undefined, Actions> {
 
-    return function(dispatch) {
+    return async function (dispatch) {
         dispatch(createRequestAddition(candidate, certificate));
 
-        return getWeb3.then(
-            async ({web3}: any) => {
-
-                const accounts = await web3.eth.getAccounts();
-                const currentAccount: Address = new Address(accounts[0]);
-                const certificates = contract(CertificatesContract);
-                certificates.setProvider(web3.currentProvider);
-                
-                web3.personal.unlockAccount(currentAccount, () => {
-                    return web3.eth.getAccounts((_: any, accounts: any) => {
-                        certificates.deployed().then((instance: any) => {
-                            const hashedCertificate = `0x${sha256(certificate || '')}`;
-
-                            instance.assign(
-                                candidate.toString(),
-                                web3.toBigNumber(hashedCertificate),
-                                { from: currentAccount, gas: 5000000 }
-                            );
-                        })
-                        .then(() => {
-                            dispatch(requestSent());
-                        });
-                    })
-                });
-
-           }
-        )
+        const { certificates, web3, currentAccount } = await getContractEnvironment();
+        const hashedCertificate = `0x${sha256(certificate || '')}`;
+        await certificates.assign(
+            candidate.toString(),
+            web3.utils.toBN(hashedCertificate),
+            { from: currentAccount.toString(), gas: 5000000 }
+        );
+        dispatch(requestSent());
     }
 }

@@ -8,9 +8,10 @@ export interface Environment {
     educatorNetwork: any;
     certificates: any;
     currentAccount: Address;
+    web3: any;
 }
 
-export async function getDeployedContracts(): Promise<Environment> {
+export async function getContractEnvironment(): Promise<Environment> {
     const { web3 }: any = await getWeb3;
     const accounts = await web3.eth.getAccounts();
     const currentAccount = new Address(accounts[0]);
@@ -26,6 +27,7 @@ export async function getDeployedContracts(): Promise<Environment> {
     return {
         educatorNetwork: educatorNetworkInstance,
         certificates: certificatesInstance,
-        currentAccount
+        currentAccount,
+        web3
     }
 }

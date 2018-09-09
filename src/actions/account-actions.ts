@@ -6,7 +6,7 @@ import { AccountState, Role, Account } from '../state/account';
 import getWeb3 from "../utils/getWeb3";
 import { getMembers } from "./network-member-actions";
 import { Address } from '../types/ethereum-address';
-import { getDeployedContracts } from '../utils/contract-api';
+import { getContractEnvironment } from '../utils/contract-api';
 
 export const REQUEST_ACCOUNT = 'REQUEST_ACCOUNT';
 export type REQUEST_ACCOUNT = typeof REQUEST_ACCOUNT;
@@ -38,7 +38,7 @@ export type Actions = RequestAccount | SetAccount;
 export function requestAccount() : ThunkAction<void, AccountState, undefined, Actions> {
     return async function (dispatch) {
         
-        const { educatorNetwork, currentAccount } = await getDeployedContracts();
+        const { educatorNetwork, currentAccount } = await getContractEnvironment();
 
         const members: string[] = await educatorNetwork.getMembers.call();
         let role: Role;
