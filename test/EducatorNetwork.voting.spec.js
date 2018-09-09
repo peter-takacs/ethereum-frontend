@@ -28,13 +28,24 @@ contract('Voting status', async(accounts) => {
         assert.equal(votes[1][0], 0);
     });
 
-    it('Should return accepted votes after voting', async() => {
+    it('Should return a list of candidates', async () => {
+        const candidates = await instance.getCandidates.call();
+
+        assert.equal(candidates.length, 1);
+    })
+
+    it('Should return empty arrays for passed votes', async() => {
         await instance.requestAddition(candidateAccount, {from: initialAccount});
 
         const votes = await instance.getVotesForCandidate.call(candidateAccount);
-        assert.equal(votes[0][1], secondaryAccount);
-        assert.equal(votes[0][0], initialAccount);
-        assert.equal(votes[1][1], 1);
-        assert.equal(votes[1][0], 1);
+        console.log(votes);
+        assert.equal(votes[0].length, 0);
+        assert.equal(votes[1].length, 0);
     });
+
+    it('Should not return candidates of finished votes', async() => {
+        const candidates = await instance.getCandidates.call();
+
+        assert.equal(candidates.length, 0);
+    })
 })
