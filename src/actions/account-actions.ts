@@ -1,10 +1,12 @@
 const EducatorNetworkContract = require('../../build/contracts/EducatorNetwork.json');
+
 import * as contract from 'truffle-contract';
 import { ThunkAction } from "redux-thunk";
 import { AccountState, Role, Account } from '../state/account';
 import getWeb3 from "../utils/getWeb3";
 import { getMembers } from "./network-member-actions";
 import { Address } from '../types/ethereum-address';
+import { getDeployedContracts } from '../utils/contract-api';
 
 export const REQUEST_ACCOUNT = 'REQUEST_ACCOUNT';
 export type REQUEST_ACCOUNT = typeof REQUEST_ACCOUNT;
@@ -34,33 +36,18 @@ export function setAccount(address: Address, role: Role) : Actions {
 export type Actions = RequestAccount | SetAccount;
 
 export function requestAccount() : ThunkAction<void, AccountState, undefined, Actions> {
-    return function(dispatch) {
-        return getWeb3.then(
-            async ({web3}: any) => {
-                const accounts = await web3.eth.getAccounts();
-                const currentAccount: Address = new Address(accounts[0]);
-                dispatch(getMembers() as any);
-                
-                const educatorNetwork = contract(EducatorNetworkContract);
-                educatorNetwork.setProvider(web3.currentProvider);
+    return async function (dispatch) {
+        
+        const { educatorNetwork, currentAccount } = await getDeployedContracts();
 
-                return web3.eth.getAccounts((_: any, ) => {
-                    educatorNetwork.deployed().then((instance: any) => {
-                        return instance.getMembers.call();
-                    })
-                    .then((result: string[]) => {
-                        let role: Role;
-                        if (result.includes(currentAccount.toString())) {
-                            role = Role.Educator;
-                        }
-                        else {
-                            role = Role.Reader;
-                        }
-                        dispatch(setAccount(currentAccount, role));
-                    })
-                })
-
-            }
-        );
+        const members: string[] = await educatorNetwork.getMembers.call();
+        let role: Role;
+        if (members.map(s => s.toUpperCase()).includes(currentAccount.toString().toUpperCase())) {
+            role = Role.Educator;
+        }
+        else {
+            role = Role.Reader;
+        }
+        dispatch(setAccount(currentAccount, role));
     }
 }
