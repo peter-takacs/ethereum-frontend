@@ -3,7 +3,7 @@ import AddressEditor from '../common/address-editor';
 import { Button, Grid, FormControl, Card, CardContent, Typography } from '@material-ui/core';
 import { State } from '../../state/certificate-lister';
 import { Address } from '../../types/ethereum-address';
-import Certificate from './certificate';
+import Certificate from '../../containers/certificates/certificate';
 
 export interface CertificateListerDispatch {
     onCandidateChange: (candidate: Address) => void;
@@ -51,16 +51,17 @@ class CertificateLister extends React.Component<CertificateListerProps, State> {
                     </FormControl>
                 </Grid>
                 <Grid item xs>
-                    <div>
-                        {this.props.results.map(assertion => {
+                    { this.props.candidate != null
+                        ? this.props.results.map(assertion => {
                             return (
                                <Certificate
                                     key={assertion.certificate.toString()}
-                                    assertion={assertion} 
+                                    assertion={assertion}
+                                    holder={this.props.candidate!}
                                 />
-                            )
-                        })}
-                    </div>
+                            )})
+                        : (<div/>)
+                    }
                 </Grid>
             </Grid>
         );
