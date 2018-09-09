@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import CertificateChecker from './certificate-checker';
+import Certificate from '../../containers/certificates/certificate';
+jest.doMock('../../containers/certificates/certificate');
 import { dummyAddress } from '../../utils/test/address';
 import CertificateLister from './certificate-lister';
 import { EthereumOperationState } from '../../state/ethereum-operation-state';
