@@ -36,8 +36,9 @@ export type Actions = RequestAccount | SetAccount;
 export function requestAccount() : ThunkAction<void, AccountState, undefined, Actions> {
     return function(dispatch) {
         return getWeb3.then(
-            ({web3}: any) => {
-                const currentAccount: Address = new Address(web3.eth.accounts[0]);
+            async ({web3}: any) => {
+                const accounts = await web3.eth.getAccounts();
+                const currentAccount: Address = new Address(accounts[0]);
                 dispatch(getMembers() as any);
                 
                 const educatorNetwork = contract(EducatorNetworkContract);

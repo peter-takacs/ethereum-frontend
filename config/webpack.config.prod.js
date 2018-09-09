@@ -8,8 +8,6 @@ var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 
-
-
 function ensureSlash(path, needsSlash) {
   var hasSlash = path.endsWith('/');
   if (hasSlash && !needsSlash) {
@@ -48,6 +46,7 @@ if (env['process.env'].NODE_ENV !== '"production"') {
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
 module.exports = {
+
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
@@ -114,6 +113,7 @@ module.exports = {
       {
         exclude: [
           /\.html$/,
+          /\.(ts|tsx)$/,
           /\.(js|jsx)$/,
           /\.css$/,
           /\.json$/,
@@ -127,28 +127,23 @@ module.exports = {
           name: 'static/media/[name].[hash:8].[ext]'
         }
       },
-      // Process JS with Babel.
+      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.(js|jsx)$/,
-        include: paths.appSrc,
-        loader: 'babel',
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
       },
-      // The notation here is somewhat confusing.
-      // "postcss" loader applies autoprefixer to our CSS.
-      // "css" loader resolves paths in CSS and adds assets as dependencies.
-      // "style" loader normally turns CSS into JS modules injecting <style>,
-      // but unlike in development configuration, we do something different.
-      // `ExtractTextPlugin` first applies the "postcss" and "css" loaders
-      // (second argument), then grabs the result CSS and puts it into a
-      // separate file in our build process. This way we actually ship
-      // a single CSS file in production instead of JS code injecting <style>
-      // tags. If you use code splitting, however, any async bundles will still
-      // use the "style" loader inside the async code so CSS from them won't be
-      // in the main CSS file.
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss')
-        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                  name: '[name].[ext]',
+                  outputPath: 'fonts/'
+              }
+          }]
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.

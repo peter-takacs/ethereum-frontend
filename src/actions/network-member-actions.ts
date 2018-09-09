@@ -84,8 +84,10 @@ export function rejectAddition(member: Address) : ThunkAction<void, NetworkMembe
 
 export function requestAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
     return function (dispatch) {
-        return getWeb3.then(({web3}: any) => {
-            const currentAccount = web3.eth.accounts[0];
+        return getWeb3.then(async ({web3}: any) => {
+            const accounts = await web3.eth.getAccounts();
+            const currentAccount: Address = new Address(accounts[0]);
+
             web3.personal.unlockAccount(currentAccount, () => {
                 const educatorNetwork = contract(EducatorNetworkContract);
                 educatorNetwork.setProvider(web3.currentProvider);

@@ -41,8 +41,10 @@ export function requestAddition(candidate: Address, certificate: string): ThunkA
         dispatch(createRequestAddition(candidate, certificate));
 
         return getWeb3.then(
-            ({web3}: any) => {
-                const currentAccount = web3.eth.accounts[0];
+            async ({web3}: any) => {
+
+                const accounts = await web3.eth.getAccounts();
+                const currentAccount: Address = new Address(accounts[0]);
                 const certificates = contract(CertificatesContract);
                 certificates.setProvider(web3.currentProvider);
                 

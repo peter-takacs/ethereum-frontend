@@ -18,7 +18,7 @@ export function requestCandidates(): ThunkAction<void, {}, undefined, Actions> {
             type: REQUEST_CANDIDATES,
         });
         return getWeb3
-            .then((results: any) => {
+            .then(async (results: any) => {
                 const web3 = results.web3;
                 const educatorNetwork = contract(EducatorNetworkContract);
                 educatorNetwork.setProvider(web3.currentProvider);
