@@ -3,6 +3,6 @@ script:
   - npm install -g npx
   - npx ganache-cli -p 7545 > /dev/null &
   - sleep 5
-  - npx truffle migrate 
+  - npx truffle compile 
   - npx truffle test
   - npm test
