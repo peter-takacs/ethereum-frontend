@@ -1,3 +1,7 @@
-language: node_js
-node_js:
-  - "9.4.0"
+script:
+  - npm install
+  - ganache-cli -p 7545 > /dev/null &
+  - sleep 5
+  - truffle migrate 
+  - truffle test
+  - npm test
