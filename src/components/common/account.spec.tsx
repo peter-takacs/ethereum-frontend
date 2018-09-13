@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AccountDisplay from './Account';
+import AccountDisplay from './account';
 import * as renderer from 'react-test-renderer';
 import { Address } from '../../types/ethereum-address';
 import { dummyAccount } from '../../utils/test/address';
