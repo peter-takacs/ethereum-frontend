@@ -6,6 +6,7 @@ import { ThunkAction } from '../../node_modules/redux-thunk';
 import { CertificateCheckerState } from '../state/certificate-checker';
 import { CandidateQuery } from '../state/candidate-query';
 import { sha256 } from '../../node_modules/js-sha256';
+import { getContractEnvironment } from '../utils/contract-api';
 
 export const REQUEST_STATUS = 'REQUEST_STATUS';
 export type REQUEST_STATUS = typeof REQUEST_STATUS;
@@ -36,28 +37,17 @@ function receiveStatus(hasCertificate: boolean): Actions {
 export type Actions = ReceiveStatus | RequestStatus; 
 
 export function getStatus(query: CandidateQuery): ThunkAction<void, CertificateCheckerState, undefined, Actions> {
-    return function (dispatch) {
+    return async function (dispatch) {
         dispatch(requestStatus(query));
 
-        return getWeb3
-        .then((results: any) => {
-            const web3 = results.web3;
+        const { certificates, web3, currentAccount } = await getContractEnvironment();
+        if (query.candidate == null) {
+            return;
+        }
+        const candidateCertificates: number[] = await certificates.getCertificates.call(query.candidate.toString());
 
-            const certificates = contract(CertificatesContract)
-            certificates.setProvider(web3.currentProvider);
-            return web3.eth.getAccounts(() => {
-                certificates.deployed().then((instance: any) => {
-                    if (query.candidate == null) {
-                        return;
-                    }
-                    return instance.getCertificates.call(query.candidate.toString())
-                })
-                .then((result: number[]) => {
-                    const hashedCertificate = sha256(query.certificate || '');
-                    const hashNumber = web3.toBigNumber(`0x${hashedCertificate}`)
-                    dispatch(receiveStatus(result.some(result => hashNumber.equals(result))));
-                })
-            });
-        });
+        const hashedCertificate = sha256(query.certificate || '');
+        const hashNumber = web3.toBigNumber(`0x${hashedCertificate}`)
+        dispatch(receiveStatus(candidateCertificates.some(r => hashNumber.equals(r))));
     }
 }

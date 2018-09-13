@@ -22,6 +22,7 @@ const store = createStore(rootReducer, /* preloadedState, */
 );
 store.dispatch(requestAccount() as any);
 store.dispatch(requestCandidates() as any);
+store.dispatch(getMembers() as any);
 
 ReactDOM.render(
   <BrowserRouter>

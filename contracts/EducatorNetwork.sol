@@ -101,6 +101,16 @@ contract EducatorNetwork {
             }
             updatedMembers[members.length] = newMember;
             members = updatedMembers;
+
+            address[] memory reducedCandidates = new address[](candidates.length - 1);
+            uint targetIndex = 0;
+            for (uint k = 0; k < candidates.length; k++) {
+                if (candidates[k] != newMember) {
+                    reducedCandidates[targetIndex] = candidates[k];
+                    targetIndex++;
+                }
+            }
+            candidates = reducedCandidates;
             return true;
         }
 

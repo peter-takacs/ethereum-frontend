@@ -18,7 +18,7 @@ contract('Addition of new members', async(accounts) => {
         let candidates = await instance.getCandidates.call();
         assert.include(members, initialAccount);
         assert.include(members, additionalAccount);
-        assert.include(candidates, additionalAccount);
+        assert.notInclude(candidates, additionalAccount);
     });
 
     it('Should not add a new member without majority', async() => {
@@ -42,7 +42,7 @@ contract('Addition of new members', async(accounts) => {
         let members = await instance.getMembers.call();
         let candidates = await instance.getCandidates.call();
         assert.include(members, secondAccount);
-        assert.include(candidates, secondAccount);
+        assert.notInclude(candidates, secondAccount);
     });
 
     it('Should not add a candidate if the submitter is not a member', async () => {

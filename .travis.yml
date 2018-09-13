@@ -1,0 +1,7 @@
+script:
+  - npm install
+  - npm install -g npx
+  - sleep 5
+  - npx truffle compile 
+  - npx truffle test
+  - npm test

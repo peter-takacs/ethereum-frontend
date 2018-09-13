@@ -4,6 +4,7 @@ import * as contract from 'truffle-contract';
 import { Address } from "../types/ethereum-address";
 import { CandidateVotes, VoteStatus } from "../types/vote";
 import { ThunkAction } from "redux-thunk";
+import { getContractEnvironment } from '../utils/contract-api';
 
 export const REQUEST_CANDIDATES = 'REQUEST_CANDIDATES';
 export type REQUEST_CANDIDATES = typeof REQUEST_CANDIDATES;
@@ -13,29 +14,21 @@ export interface RequestCandidates {
 }
 
 export function requestCandidates(): ThunkAction<void, {}, undefined, Actions> {
-    return function (dispatch) {
+    return async function (dispatch) {
+
+        const { educatorNetwork, web3, currentAccount } = await getContractEnvironment();
         dispatch({
             type: REQUEST_CANDIDATES,
         });
-        return getWeb3
-            .then((results: any) => {
-                const web3 = results.web3;
-                const educatorNetwork = contract(EducatorNetworkContract);
-                educatorNetwork.setProvider(web3.currentProvider);
 
-                return web3.eth.getAccounts(() => {
-                    educatorNetwork.deployed().then((instance: any) => {
-                        return instance.getCandidates.call()
-                    })
-                    .then((response: any[]) => {
-                       dispatch(receiveCandidates(response.map(r => new Address(r))));
-                        response.forEach(r => {
-                            dispatch(requestVotes(new Address(r)))
-                        })
-                    })
-            });
-        });
-}}
+        const response: any[] = await educatorNetwork.getCandidates.call();
+
+        dispatch(receiveCandidates(response.map(r => new Address(r))));
+        response.forEach(r => {
+            dispatch(requestVotes(new Address(r)))
+        })
+    }
+}
 
 export const RECEIVE_CANDIDATES = 'RECEIVE_CANDIDATES';
 export type RECEIVE_CANDIDATES = typeof RECEIVE_CANDIDATES;
@@ -61,36 +54,24 @@ export interface RequestVotes {
 }
 
 export function requestVotes(candidate: Address): ThunkAction<void, {}, undefined, Actions> {
-    return function(dispatch) {
+    return async function (dispatch) {
         dispatch({
             type: REQUEST_VOTES,
             candidate
         });
-        return getWeb3
-        .then((results: any) => {
-            const web3 = results.web3;
-            const educatorNetwork = contract(EducatorNetworkContract);
-            educatorNetwork.setProvider(web3.currentProvider);
-
-            return web3.eth.getAccounts(() => {
-                educatorNetwork.deployed().then((instance: any) => {
-                    return instance.getVotesForCandidate.call(candidate.toString())
-                })
-                .then((response: any[][]) => {
-                    let votes = new Map<Address, VoteStatus>();
-                    for (let i = 0; i < response[0].length; i++) {
-                        votes.set(
-                            new Address(response[0][i]),
-                            response[1][i].toNumber()
-                        );
-                    }
-                    dispatch(receiveVotes({
-                        candidate,
-                        votes
-                    }));
-                })
-            });
-        });
+        const { educatorNetwork, web3, currentAccount } = await getContractEnvironment();
+        const response: any[][] = await educatorNetwork.getVotesForCandidate.call(candidate.toString());
+        let votes = new Map<Address, VoteStatus>();
+        for (let i = 0; i < response[0].length; i++) {
+            votes.set(
+                new Address(response[0][i]),
+                response[1][i].toNumber()
+            );
+        }
+        dispatch(receiveVotes({
+            candidate,
+            votes
+        }));
     }
 }
 

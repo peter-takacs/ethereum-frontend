@@ -5,6 +5,7 @@ import { ThunkAction } from 'redux-thunk';
 import { NetworkMembersState } from '../state/educator-network';
 import { Address } from '../types/ethereum-address';
 import { NetworkMemberAdditionState } from '../state/network-member-addition';
+import { getContractEnvironment } from '../utils/contract-api';
 
 export const REQUEST_MEMBERS = 'REQUEST_MEMBERS';
 export type REQUEST_MEMBERS = typeof REQUEST_MEMBERS;
@@ -50,24 +51,13 @@ interface RejectAddition {
 export type Actions = ReceiveMembers | RequestMembers | RequestAddition | AcceptAddition | RejectAddition;
 
 export function getMembers(): ThunkAction<void, NetworkMembersState, undefined, Actions> {
-    return function (dispatch) {
+    return async function (dispatch) {
         dispatch(requestMembers());
+        const { educatorNetwork, web3, currentAccount } = await getContractEnvironment();
 
-        return getWeb3
-        .then((results: any) => {
-            const web3 = results.web3;
-            const educatorNetwork = contract(EducatorNetworkContract);
-            educatorNetwork.setProvider(web3.currentProvider);
+        const result: string[] = await educatorNetwork.getMembers.call();
 
-            return web3.eth.getAccounts(() => {
-                educatorNetwork.deployed().then((instance: any) => {
-                    return instance.getMembers.call()
-                })
-                .then((result: string[]) => {
-                    dispatch(receiveMembers(result.map(s => new Address(s))));
-                })
-            });
-        });
+        dispatch(receiveMembers(result.map(s => new Address(s))));
     }
 }
 
@@ -83,22 +73,10 @@ export function rejectAddition(member: Address) : ThunkAction<void, NetworkMembe
 }
 
 export function requestAddition(member: Address) : ThunkAction<void, NetworkMemberAdditionState, undefined, Actions> {
-    return function (dispatch) {
-        return getWeb3.then(({web3}: any) => {
-            const currentAccount = web3.eth.accounts[0];
-            web3.personal.unlockAccount(currentAccount, () => {
-                const educatorNetwork = contract(EducatorNetworkContract);
-                educatorNetwork.setProvider(web3.currentProvider);
-
-                return web3.eth.getAccounts((_: any, ) => {
-                    educatorNetwork.deployed().then((instance: any) => {
-                        return instance.requestAddition(member.toString(), { from: currentAccount, gas: 500000 })
-                    })
-                    .then(() => {
-                        dispatch(getMembers() as any); //TODO
-                    })
-                })
-            });
-       })
+    return async function (dispatch) {
+        const { educatorNetwork, web3, currentAccount } = await getContractEnvironment();
+        await web3.eth.personal.unlockAccount(currentAccount.toString());
+        await educatorNetwork.requestAddition(member.toString(), { from: currentAccount.toString(), gas: 500000 });
+        dispatch(getMembers() as any);
     }
 }
